@@ -1,1 +1,75 @@
-Your introduction here.
+Assuming that following odd power identity holds
+\begin{align*}
+    n^{2m+1} = \sum_{r=0}^{m} \sum_{k=0}^{n-1} \coeffA{m}{r} k^r (n-k)^r
+\end{align*}
+Our main goal is to identify the set of coefficients $\coeffA{m}{0}, \coeffA{m}{1}, \ldots, \coeffA{m}{m}$
+such that identity above is true.
+
+Although, the recurrence relation is already given at~\cite{alekseyev2018mathoverflow}, a few key points in proof
+are worth to discuss additionally.
+
+The main idea of Alekseyev's approach was to utilize dynamic programming methods to evaluate the $\coeffA{m}{r}$ recursively,
+taking the base case $\coeffA{m}{m}$, then evaluating the next coefficient $\coeffA{m}{m-1}$
+by using backtracking, continuing similarly up to $\coeffA{m}{0}$.
+
+Expanding $(n-k)^r$ using Faulhaber's formula yields
+\begin{align}
+    &\sum_{k=0}^{n-1} k^{j} (n-k)^{j} = \sum_{k=0}^{n-1} \sum_{i} \binom{j}{i} n^{j-i} k^{i+j} \\
+    &= \sum_{i} \binom{j}{i} n^{j-i} \frac{(-1)^i}{i+j+1} \left[ \sum_{t} \binom{i+j+1}{t} \bernoulli{t} n^{i+j+1-t} - \bernoulli{i+j+1} \right] \\
+    &=\sum_{i,t} \binom{j}{i} \frac{(-1)^i}{i+j+1} \binom{i+j+1}t B_t n^{2j+1-t} - \sum_{i} \binom{j}{i}  \frac{(-1)^i}{i+j+1} B_{i+j+1} n^{j-i}
+\end{align}
+where $\bernoulli{t}$ are Bernoulli numbers.
+
+\textbf{Comment}: Now let's break down the steps we performed to get formulae above
+\begin{itemize}
+    \item In (1) we expanded $(n-k)^{j}$ by using Binomial theorem
+    \item In (2) we expanded the sum $\sum_{k=0}^{n-1} k^{i+j}$ by using Faulhaber's formula
+    $\sum_{k=1}^{n} k^{p} = \frac{1}{p+1}\sum_{t=0}^{p} \binom{p+1}{t} \bernoulli{j} n^{p+1-t}$.
+    Note that the Faulhaber's formula above was modified in order to omit summation bounds, meaning that
+    \begin{align*}
+        \sum_{k=1}^{n} k^{p} = \frac{1}{p+1}\sum_{t=0}^{p} \binom{p+1}{t} \bernoulli{j} n^{p+1-t}
+        = \left[ \frac{1}{p+1}\sum_{t} \binom{p+1}{t} \bernoulli{t} n^{p+1-t} \right] - \bernoulli{p+1}
+    \end{align*}
+    \item In (3) we expand brackets by merging two sums
+\end{itemize}
+Now, we notice that
+\begin{align}
+    \sum_{i} \binom{j}{i} \frac{(-1)^i}{i+j+1} \binom{i+j+1}t
+    =\begin{cases}
+         \frac{1}{(2j+1)\binom{2j}j}, & \text{if } t=0;\\
+         \frac{(-1)^j}{t}\binom{j}{2j-t+1}, & \text{if } t>0.
+    \end{cases}
+\end{align}
+\textbf{Comment}: The source or proof of identity (4) is not clear yet.
+It would be nice to provide it.
+
+Hence, introducing $\ell=2j+1-t$ and $\ell = j-i$ respectively, we get
+\begin{align}
+    \sum_{k=0}^{n-1} (n-k)^j k^j
+    &= \frac{1}{(2j+1)\binom{2j}j} n^{2j+1} + \sum_{\ell} \frac{(-1)^j}{2j+1-\ell}\binom{j}{\ell}B_{2j+1-\ell}n^{\ell}
+    - \sum_{\ell} \binom{j}{\ell} \frac{(-1)^{j-\ell}}{2j+1-\ell} B_{2j+1-\ell}n^{\ell} \\
+    &=\frac{1}{(2j+1)\binom{2j}j} n^{2j+1} + 2\sum_{\text{odd }\ell} \frac{(-1)^j}{2j+1-\ell}\binom{j}{\ell}B_{2j+1-\ell}n^{\ell}
+\end{align}
+\textbf{Comment}: Let's break down what is going in (5) and (6)
+\begin{itemize}
+    \item \textit{Step 5.1}: Double sum $\sum_{i,t}$ simplified to single one $\sum_t$ by means of (4).
+    \item \textit{Step 5.2}: The term $\frac{1}{(2j+1)\binom{2j}j} n^{2j+1}$ moved out of summation by means of (4).
+    It is iteration step $t=0$.
+    \item \textit{Step 5.3}: Introducing $\ell=2j+1-t$ and $\ell = j-i$ to sums $\sum_t$ and $\sum_i$ to collapse common terms in (5).
+    \item \textit{Step 5.4}: Expression with common terms collapsed (6).
+\end{itemize}
+Using the definition of $\coeffA{m}{j}$, we obtain the following identity for polynomials in $n$
+\begin{align}
+    \sum_{j} \coeffA{m}{j} \frac{1}{(2j+1)\binom{2j}j}n^{2j+1}
+    + 2 \sum_{j,\text{ odd }\ell} \coeffA{m}{j} \binom{j}{\ell} \frac{(-1)^j}{2j+1-\ell} B_{2j+1-\ell}n^{\ell} \equiv n^{2m+1}
+\end{align}
+Taking the coefficient of $n^{2m+1}$ we get
+\begin{align}
+    \coeffA{m}{m} = (2m+1)\binom{2m}{m}
+\end{align}
+\textbf{Comment}: It is not clear how exactly $\coeffA{m}{m} = (2m+1)\binom{2m}{m}$ follows.
+As I understand, here is about \textit{Taking coefficient of} in context of generating functions?
+Meaning that coefficient of $2m+1$ so that $j=m$ in $\sum_{j} \coeffA{m}{j} \frac{1}{(2j+1)\binom{2j}j}n^{2j+1}$?
+Hence, coefficient of it to be $\coeffA{m}{m} \frac{1}{(2m+1)\binom{2m}{m}}$.
+To evaluate $\coeffA{m}{m} = (2m+1)\binom{2m}{m}$ it should be assumed that $\coeffA{m}{m} \frac{1}{(2m+1)\binom{2m}{m}} = 1$,
+which is indeed true because of $n^{2m+1}$ in RHS.
