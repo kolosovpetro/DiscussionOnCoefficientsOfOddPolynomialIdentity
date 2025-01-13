@@ -1,0 +1,42 @@
+﻿\begin{question}
+    Although, a proof of combinatorial identity~\eqref{eq:combinatorial-identity} is already present, it is good
+    to point out literature or more context on it.
+    Reference to a book or article with deeper discussion.
+\end{question}
+\begin{question}
+    I have struggle to understand the equation~\eqref{eq:question_1}, it takes the coefficient of $n^{2m+1}$ meaning that
+    we substitute $r=m$ into~\eqref{eq:main_relation} evaluating it, if I understand it properly.
+    So that coefficient of $n^{2m+1}$ is
+    \begin{align*}
+         \coeffA{m}{m} \frac{1}{(2m+1) \binom{2m}m} n^{2m+1}
+        + 2 \sum_{k} \coeffA{m}{m} \frac{(-1)^m}{2m-2k} \binom{m}{2k+1} \bernoulli{2m-2k} n^{2k+1} = 1
+    \end{align*}
+    It implies that coefficient of $n^{2m+1}$ is zero
+    \begin{align*}
+        2 \sum_{k} \coeffA{m}{m} \frac{(-1)^m}{2m-2k} \binom{m}{2k+1} \bernoulli{2m-2k} n^{2k+1} = 0
+    \end{align*}
+    So that
+    \begin{align*}
+        \coeffA{m}{m} \frac{1}{(2m+1) \binom{2m}m} = 1; \quad \quad \coeffA{m}{m} = (2m+1)\binom{2m}{m}
+    \end{align*}
+    Which is indeed true because $\binom{m}{2k+1} = 0$ as $k=m$.
+\end{question}
+\begin{question}
+    Almost the same problem with equation~\eqref{eq:question_2},
+    taking the coefficient of $n^{2d+1}$ for an integer $d$ in the range $\frac{m}{2} \leq d < m$, we get
+    \begin{align*}
+        \coeffA{m}{d} = 0
+    \end{align*}
+    Let be $r=d$ in~\eqref{eq:main_relation}
+    \begin{align*}
+        \coeffA{m}{d} \frac{1}{(2d+1) \binom{2d}d} n^{2d+1}
+        + 2 \sum_{k} \coeffA{m}{d} \frac{(-1)^d}{2d-2k} \binom{d}{2k+1} \bernoulli{2d-2k} n^{2k+1} = 0
+    \end{align*}
+    Let be $d=m-1$ then again same principle
+    \begin{align*}
+        2 \sum_{k} \coeffA{m}{d} \frac{(-1)^d}{2d-2k} \binom{d}{2k+1} \bernoulli{2d-2k} n^{2k+1} = 0
+    \end{align*}
+    because $\binom{m-1}{2k+1}=0$ as $k=m-1$.
+\end{question}
+To summarize, the value of $k$ should be in range $k \leq \frac{d-1}{2}$ so that binomial coefficient $\binom{d}{2k+1}$
+is non-zero.

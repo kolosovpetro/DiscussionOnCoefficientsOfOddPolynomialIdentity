@@ -33,11 +33,12 @@ Rearranging terms yields
 \end{equation}
 We can notice that
 \begin{equation}
+    \label{eq:combinatorial-identity}
     \sum_{t} \binom{r}{t} \frac{(-1)^t}{r+t+1} \binom{r+t+1}{j}
     =\begin{cases}
          \frac{1}{(2r+1) \binom{2r}r} & \text{if } j=0\\
          \frac{(-1)^r}{j} \binom{r}{2r-j+1} & \text{if } j>0
-    \end{cases}\label{eq:combinatorial-identity}
+    \end{cases}
 \end{equation}
 An elegant proof of the binomial identity~\eqref{eq:combinatorial-identity} is presented in~\cite{scheuer2023mathstackexchange}.
 
@@ -79,25 +80,29 @@ we obtain the following relation for polynomials in $n$
     \equiv n^{2m+1}
 \end{equation*}
 Replacing odd $\ell$ by $k$ we get
-\begin{align*}
+\begin{align}
+    \label{eq:main_relation}
     \sum_{r} \coeffA{m}{r} \frac{1}{(2r+1) \binom{2r}r} n^{2r+1}
     + 2 \sum_{r, \; k} \coeffA{m}{r} \frac{(-1)^r}{2r-2k} \binom{r}{2k+1} \bernoulli{2r-2k} n^{2k+1} \equiv n^{2m+1}
-\end{align*}
+\end{align}
 Taking the coefficient of $n^{2m+1}$ we get
-\begin{equation*}
+\begin{align}
+    \label{eq:question_1}
     \coeffA{m}{m} = (2m+1)\binom{2m}{m}
-\end{equation*}
+\end{align}
 
 Taking the coefficient of $n^{2d+1}$ for an integer $d$ in the range $\frac{m}{2} \leq d < m$, we get
-\begin{equation*}
+\begin{align}
+    \label{eq:question_2}
     \coeffA{m}{d} = 0
-\end{equation*}
+\end{align}
 
 Taking the coefficient of $n^{2d+1}$ for $d$ in the range $\frac{m}{4} \leq d < \frac{m}{2}$ we get
-\begin{equation*}
+\begin{align}
+    \label{eq:question_3}
     \coeffA{m}{d} \frac{1}{(2d+1) \binom{2d}{d}}
     +2 (2m+1) \binom{2m}{m}\binom{m}{2d+1} \frac{(-1)^m}{2m-2d} \bernoulli{2m-2d} = 0
-\end{equation*}
+\end{align}
 i.e
 \begin{equation*}
     \coeffA{m}{d} = (-1)^{m-1} \frac{(2m+1)!}{d!d!m!(m-2d-1)!} \frac{1}{m-d} \bernoulli{2m-2d}
