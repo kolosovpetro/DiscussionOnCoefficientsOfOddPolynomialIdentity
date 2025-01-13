@@ -1,40 +1,146 @@
-Your introduction here.
-Include some references~\cite{bayour2017truly,benkhettou2016conformable,caputo2009time,martins2009calculus,
-    GithubSource_2022, Sloane_theencyclopedia}.
-Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-of type and scrambled it to make a type specimen book.
-It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more
-recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+Assuming that following odd power identity holds
+\begin{align}
+    \label{eq:odd-power-identity}
+    n^{2m+1} = \sum_{r=0}^{m} \sum_{k=1}^{n} \coeffA{m}{r} k^r (n-k)^r
+\end{align}
+Our main goal is to identify the set of coefficients $\coeffA{m}{0}, \coeffA{m}{1}, \ldots, \coeffA{m}{m}$
+such that identity above is true.
 
-Figure example
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\textwidth]{../img/latex_configuration}
-    ~\caption{Figure example.}\label{fig:figure}
-\end{figure}
+Although, the recurrence relation is already given at~\cite{alekseyev2018mathoverflow}, a few key points in proof
+are worth to discuss additionally.
 
-\begin{equation*}
-     \llceil \nobarfrac{a}{b} \rrfloor_{m}
-\end{equation*}
-\begin{equation*}
-    \llceilCoefficient{a}{b}{m}
-\end{equation*}
+The main idea of Alekseyev's approach was to utilize dynamic programming methods to evaluate the $\coeffA{m}{r}$ recursively,
+taking the base case $\coeffA{m}{m}$ and then evaluating the next coefficient $\coeffA{m}{m-1}$
+by using backtracking, continuing similarly up to $\coeffA{m}{0}$.
 
-And for any natural $m$ we have polynomial identity
+By applying Binomial theorem $(n-k)^r=\sum_{t=0}^{r} (-1)^t \binom{r}{t} n^{r-t} k^t$ and Faulhaber's formula
+$\sum_{k=1}^{n} k^{p} = \left[ \frac{1}{p+1}\sum_{j} \binom{p+1}{j} \bernoulli{j} n^{p+1-j} \right] - \bernoulli{p+1}$, we get
+\begin{align*}
+    &\sum_{k=1}^{n} k^{r} (n-k)^{r}
+    = \sum_{t=0}^{r} (-1)^t \binom{r}{t} n^{r-t} \sum_{k=1}^{n} k^{t+r} \\
+    &= \sum_{t=0}^{r} (-1)^t \binom{r}{t} n^{r-t} \left[ \frac{1}{t+r+1} \sum_{j} \binom{t+r+1}{j} \bernoulli{j} n^{t+r+1-j} - \bernoulli{t+r+1} \right] \\
+    &= \sum_{t=0}^{r} \binom{r}{t} \left[ \frac{(-1)^t}{t+r+1} \sum_{j} \binom{t+r+1}{j} \bernoulli{j} n^{2r+1-j} - \bernoulli{t+r+1} n^{r-t} \right] \\
+    &= \left[ \sum_{t=0}^{r} \binom{r}{t} \frac{(-1)^t}{t+r+1} \sum_{j} \binom{t+r+1}{j} \bernoulli{j} n^{2r+1-j}  \right]
+    - \left[ \sum_{t=0}^{r} \binom{r}{t} \frac{(-1)^t}{t+r+1} \bernoulli{t+r+1} n^{r-t} \right] \\
+    &= \left[ \sum_{j, t} \binom{r}{t} \frac{(-1)^t}{t+r+1} \binom{t+r+1}{j} \bernoulli{j} n^{2r+1-j}  \right]
+    - \left[ \sum_{t} \binom{r}{t} \frac{(-1)^t}{t+r+1} \bernoulli{t+r+1} n^{r-t} \right]
+\end{align*}
+Rearranging terms yields
 \begin{equation}
-    x^m = \sum_{k=1}^{m} T(m, k) \centralFactorial{x}{k}
-    \label{eq:knuth-power-identity}
+    \left[ \sum_{j} \bernoulli{j} n^{2r+1-j} \sum_{t} \binom{r}{t} \frac{(-1)^t}{t+r+1} \binom{t+r+1}{j}  \right]
+    - \left[ \sum_{t} \binom{r}{t} \frac{(-1)^t}{t+r+1} \bernoulli{t+r+1} n^{r-t} \right]
+    \label{eq:rearranging-terms}
 \end{equation}
-where $\centralFactorial{x}{k}$ denotes central factorial defined by
+We can notice that
+\begin{equation}
+    \label{eq:combinatorial-identity}
+    \sum_{t} \binom{r}{t} \frac{(-1)^t}{r+t+1} \binom{r+t+1}{j}
+    =\begin{cases}
+         \frac{1}{(2r+1) \binom{2r}r} & \text{if } j=0\\
+         \frac{(-1)^r}{j} \binom{r}{2r-j+1} & \text{if } j>0
+    \end{cases}
+\end{equation}
+An elegant proof of the binomial identity~\eqref{eq:combinatorial-identity} is presented in~\cite{scheuer2023mathstackexchange}.
+
+In particular, equation~\eqref{eq:combinatorial-identity} is zero for $0< t \leq j$.
+By using~\eqref{eq:combinatorial-identity}, we are able to move $j=0$ out of summation
+in~\eqref{eq:rearranging-terms} which yields
 \begin{equation*}
-    \centralFactorial{x}{n} = x \fallingFactorial{x+\frac{n}{2}-1}{n-1}
+    \begin{split}
+        \sum_{k=1}^{n} k^{r} (n-k)^{r}
+        &= \frac{1}{(2r+1) \binom{2r}r} n^{2r+1} + \left[ \sum_{j \geq 1} \bernoulli{j} n^{2r+1-j} \sum_{t} \binom{r}{t} \frac{(-1)^t}{t+r+1} \binom{t+r+1}{j} \right] \\
+        &- \left[ \sum_{t=0}^{r} \binom{r}{t} \frac{(-1)^t}{t+r+1} \bernoulli{t+r+1} n^{r-t} \right]
+    \end{split}
 \end{equation*}
-where $\fallingFactorial{n}{k} = n (n-1) (n-2) \cdots (n-k+1)$ denotes falling factorial in Knuth's notation.
-In particular,
+Simplifying above equation by using~\eqref{eq:combinatorial-identity} yields
 \begin{equation*}
-    \centralFactorial{x}{n}
-    = x \left( x+\frac{n}{2}-1 \right) \left( x+\frac{n}{2}-1 \right) \cdots \left (x+\frac{n}{2}-n-1 \right)
-    = x \prod_{k=1}^{n-1} \left( x+\frac{n}{2}-k \right)
+    \begin{split}
+        \sum_{k=1}^{n} k^{r} (n-k)^{r}
+        &= \frac{1}{(2r+1) \binom{2r}r} n^{2r+1}
+        + \underbrace{\left[ \sum_{j \geq 1} \frac{(-1)^r}{j} \binom{r}{2r-j+1} \bernoulli{j} n^{2r-j+1} \right]}_{(\star)} \\
+        &- \underbrace{\left[ \sum_{t=0}^{r} \binom{r}{t} \frac{(-1)^t}{t+r+1} \bernoulli{t+r+1} n^{r-t} \right]}_{(\diamond)}
+    \end{split}
 \end{equation*}
+Hence, introducing $\ell=2r-j+1$ to $(\star)$ and $\ell=r-t$ to $(\diamond)$
+we collapse the common terms
+\begin{equation*}
+    \begin{split}
+        \sum_{k=1}^{n} k^{r} (n-k)^{r}
+        &= \frac{1}{(2r+1) \binom{2r}r} n^{2r+1}
+        + \left[ \sum_{\ell} \frac{(-1)^r}{2r+1-\ell} \binom{r}{\ell} \bernoulli{2r+1-\ell} n^{\ell} \right] \\
+        &- \left[ \sum_{\ell} \binom{r}{\ell} \frac{(-1)^{r-\ell}}{2r+1-\ell} \bernoulli{2r+1-\ell} n^{\ell} \right]\\
+        &= \frac{1}{(2r+1) \binom{2r}r} n^{2r+1} + 2 \sum_{\mathrm{odd \; \ell}} \frac{(-1)^r}{2r+1-\ell} \binom{r}{\ell} \bernoulli{2r+1-\ell} n^{\ell}
+    \end{split}
+\end{equation*}
+Assuming that $\coeffA{m}{r}$ is defined by~\eqref{eq:odd-power-identity},
+we obtain the following relation for polynomials in $n$
+\begin{equation*}
+    \sum_{r} \coeffA{m}{r} \frac{1}{(2r+1) \binom{2r}r} n^{2r+1}
+    + 2 \sum_{r, \; \mathrm{odd \; \ell}} \coeffA{m}{r} \frac{(-1)^r}{2r+1-\ell} \binom{r}{\ell} \bernoulli{2r+1-\ell} n^{\ell}
+    \equiv n^{2m+1}
+\end{equation*}
+Replacing odd $\ell$ by $k$ we get
+\begin{align}
+    \label{eq:main_relation}
+    \sum_{r} \coeffA{m}{r} \frac{1}{(2r+1) \binom{2r}r} n^{2r+1}
+    + 2 \sum_{r, \; k} \coeffA{m}{r} \frac{(-1)^r}{2r-2k} \binom{r}{2k+1} \bernoulli{2r-2k} n^{2k+1} \equiv n^{2m+1}
+\end{align}
+Taking the coefficient of $n^{2m+1}$ we get
+\begin{align}
+    \label{eq:question_1}
+    \coeffA{m}{m} = (2m+1)\binom{2m}{m}
+\end{align}
+
+Taking the coefficient of $n^{2d+1}$ for an integer $d$ in the range $\frac{m}{2} \leq d < m$, we get
+\begin{align}
+    \label{eq:question_2}
+    \coeffA{m}{d} = 0
+\end{align}
+
+Taking the coefficient of $n^{2d+1}$ for $d$ in the range $\frac{m}{4} \leq d < \frac{m}{2}$ we get
+\begin{align}
+    \label{eq:question_3}
+    \coeffA{m}{d} \frac{1}{(2d+1) \binom{2d}{d}}
+    +2 (2m+1) \binom{2m}{m}\binom{m}{2d+1} \frac{(-1)^m}{2m-2d} \bernoulli{2m-2d} = 0
+\end{align}
+i.e
+\begin{equation*}
+    \coeffA{m}{d} = (-1)^{m-1} \frac{(2m+1)!}{d!d!m!(m-2d-1)!} \frac{1}{m-d} \bernoulli{2m-2d}
+\end{equation*}
+Continue similarly we can compute $\coeffA{m}{r}$ for each integer $r$ in range $\frac{m}{2^{s+1}} \leq r < \frac{m}{2^{s}}$,
+iterating consecutively over $s=1,2,\ldots$ by using previously determined values of $\coeffA{m}{d}$ as follows
+\begin{equation*}
+    \coeffA{m}{r} =
+    (2r+1) \binom{2r}{r} \sum_{d \geq 2r+1}^{m} \coeffA{m}{d} \binom{d}{2r+1} \frac{(-1)^{d-1}}{d-r}
+    \bernoulli{2d-2r}
+\end{equation*}
+Finally, we are capable to define the following recurrence relation for coefficient $\coeffA{m}{r}$
+\begin{definition} (Definition of coefficient $\coeffA{m}{r}$.)
+    \begin{equation}
+        \label{eq:definition_coefficient_a}
+        \coeffA{m}{r} =
+        \begin{cases}
+        (2r+1)
+            \binom{2r}{r} & \mathrm{if} \; r=m \\
+            (2r+1) \binom{2r}{r} \sum_{d \geq 2r+1}^{m} \coeffA{m}{d} \binom{d}{2r+1} \frac{(-1)^{d-1}}{d-r}
+            \bernoulli{2d-2r} & \mathrm{if} \; 0 \leq r<m \\
+            0 & \mathrm{if} \; r<0 \; \mathrm{or} \; r>m
+        \end{cases}
+    \end{equation}
+\end{definition}
+where $\bernoulli{t}$ are Bernoulli numbers~\cite{bateman1953higher}.
+It is assumed that $\bernoulli{1}=\frac{1}{2}$.
+
+For example,
+\input{sections/figures/05_fig_coefficients_a}
+
+Properties of the coefficients $\coeffA{m}{r}$
+\begin{itemize}
+    \item $\coeffA{m}{m} = \binom{2m}{m}$
+    \item $\coeffA{m}{r} = 0$ for $m < 0$ and $r > m$
+    \item $\coeffA{m}{r} = 0$ for $r < 0$
+    \item $\coeffA{m}{r} = 0$ for $\frac{m}{2} \leq r < m$
+    \item $\coeffA{m}{0} = 1$ for $m \geq 0$
+    \item $\coeffA{m}{r}$ are integers for $m \leq 11$
+    \item Row sums: $\sum_{r=0}^{m} \coeffA{m}{r} = 2^{2m+1} - 1$
+\end{itemize}

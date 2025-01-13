@@ -1,0 +1,30 @@
+\begin{thebibliography}{1}
+
+\bibitem{alekseyev2018mathoverflow}
+{Alekseyev, Max}.
+\newblock {MathOverflow answer 297916/113033}, 2018.
+\newblock \url{https://mathoverflow.net/a/297916/113033}.
+
+\bibitem{scheuer2023mathstackexchange}
+{Scheuer, Markus}.
+\newblock {MathStackExchange answer 4724343/463487}, 2023.
+\newblock \url{https://math.stackexchange.com/a/4724343/463487}.
+
+\bibitem{bateman1953higher}
+Harry Bateman.
+\newblock {\em {Higher transcendental functions [volumes i-iii]}}, volume~1.
+\newblock {McGRAW-HILL book company}, 1953.
+
+\bibitem{kolosov2018numerator}
+Petro Kolosov.
+\newblock {Entry A302971 in The On-Line Encyclopedia of Integer Sequences},
+  2018.
+\newblock \url{https://oeis.org/A302971}.
+
+\bibitem{kolosov2018denominator}
+Petro Kolosov.
+\newblock {Entry A304042 in The On-Line Encyclopedia of Integer Sequences},
+  2018.
+\newblock \url{https://oeis.org/A304042}.
+
+\end{thebibliography}
