@@ -43,8 +43,8 @@ We can notice that
 An elegant proof of the binomial identity~\eqref{eq:combinatorial-identity} is presented in~\cite{scheuer2023mathstackexchange}.
 
 In particular, equation~\eqref{eq:combinatorial-identity} is zero for $0< t \leq j$.
-By using~\eqref{eq:combinatorial-identity}, we are able to move $j=0$ out of summation
-in~\eqref{eq:rearranging-terms} which yields
+In order to apply~\eqref{eq:combinatorial-identity}, we have to move $j=0$ out of summation
+in~\eqref{eq:rearranging-terms} to avoid division by zero in $\frac{(-1)^r}{j}$, which yields
 \begin{equation*}
     \begin{split}
         \sum_{k=1}^{n} k^{r} (n-k)^{r}
@@ -52,7 +52,8 @@ in~\eqref{eq:rearranging-terms} which yields
         &- \left[ \sum_{t=0}^{r} \binom{r}{t} \frac{(-1)^t}{t+r+1} \bernoulli{t+r+1} n^{r-t} \right]
     \end{split}
 \end{equation*}
-Simplifying above equation by using~\eqref{eq:combinatorial-identity} yields
+Now we do not care about division by zero in $\frac{(-1)^r}{j}$ so that simplifying
+above equation by using~\eqref{eq:combinatorial-identity} yields
 \begin{equation*}
     \begin{split}
         \sum_{k=1}^{n} k^{r} (n-k)^{r}
@@ -62,7 +63,7 @@ Simplifying above equation by using~\eqref{eq:combinatorial-identity} yields
     \end{split}
 \end{equation*}
 Hence, introducing $\ell=2r-j+1$ to $(\star)$ and $\ell=r-t$ to $(\diamond)$
-we collapse the common terms
+we collapse the common terms across two sums
 \begin{equation*}
     \begin{split}
         \sum_{k=1}^{n} k^{r} (n-k)^{r}
@@ -90,12 +91,25 @@ Taking the coefficient of $n^{2m+1}$ we get
     \label{eq:question_1}
     \coeffA{m}{m} = (2m+1)\binom{2m}{m}
 \end{align}
+because $\coeffA{m}{m} \frac{1}{(2m+1) \binom{2m}{m}} = 1$.
 
 Taking the coefficient of $n^{2d+1}$ for an integer $d$ in the range $\frac{m}{2} \leq d < m$, we get
 \begin{align}
     \label{eq:question_2}
     \coeffA{m}{d} = 0
 \end{align}
+because we focus on sum $2 \sum_{r, \; k} \coeffA{m}{r} \frac{(-1)^r}{2r-2k} \binom{r}{2k+1} \bernoulli{2r-2k} n^{2k+1}$,
+in particular on $n^{2k+1}$ and binomial coefficient $\binom{r}{2k+1}$.
+For instance, if we have to get coefficient of $n^{2d+1}$ in range $\frac{m}{2} \leq d < m$, we set $d=m-1$, thus
+we have to get coefficient of $m-1$ in
+$2 \sum_{r, \; k} \coeffA{m}{r} \frac{(-1)^r}{2r-2k} \binom{r}{2k+1} \bernoulli{2r-2k} n^{2k+1}$.
+Therefore, we set $k=m-1$ and $r=m-1$ which leads that $\binom{r}{2k+1}=\binom{m-1}{2m-1} = 0$, so that
+$\coeffA{m}{m-1} \frac{1}{(2m-1) \binom{2m-2}{m-1}} n^{2m-1} = 0$.
+Same applies for every $d$ in the range $\frac{m}{2} \leq d < m$, because $r=\frac{m}{2}$ and $k=\frac{m}{2}$
+means that $\binom{r}{2k+1} = \binom{\frac{m}{2}}{m+1} = 0$.
+
+To summarize, the value of $k$ should be in range $k \leq \frac{d-1}{2}$ so that binomial coefficient $\binom{d}{2k+1}$
+is non-zero.
 
 Taking the coefficient of $n^{2d+1}$ for $d$ in the range $\frac{m}{4} \leq d < \frac{m}{2}$ we get
 \begin{align}
