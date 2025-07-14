@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 
 - Update build scripts
 - Commit build configurations
+- More clear explanations
+- Fix questions
 
 ## [1.0.1] - 2025-01-22
 
