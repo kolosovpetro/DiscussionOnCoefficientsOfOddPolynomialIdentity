@@ -99,7 +99,7 @@ That's may not be immediately clear why the coefficient of $n^{2m+1}$ in~\eqref{
 To take the coefficient of $n^{2m+1}$ we fix $r=m$ and $k=m$ in~\eqref{eq:main_relation}
 \begin{align*}
     &[n^{2m+1}] \left( \sum_{r} \coeffA{m}{r} \frac{1}{(2r+1) \binom{2r}{r}} n^{2r+1} + 2 \sum_{r, \; k} \coeffA{m}{r} \frac{(-1)^r}{2r-2k} \binom{r}{2k+1} \bernoulli{2r-2k} n^{2k+1} - n^{2m+1} \right) \\
-    &= \coeffA{m}{m} \frac{1}{(2m+1) \binom{2m}{m}} + 2 \sum_{r} \coeffA{m}{r} \frac{(-1)^r}{2r-2m} \binom{r}{2m+1} \bernoulli{2r-2m} - 1
+    &= \coeffA{m}{m} \frac{1}{(2m+1) \binom{2m}{m}} + 2 \sum_{r=m}^{m} \coeffA{m}{r} \frac{(-1)^r}{2r-2m} \binom{r}{2m+1} \bernoulli{2r-2m} - 1
 \end{align*}
 The sum $2 \sum_{r} \coeffA{m}{r} \frac{(-1)^r}{2r-2m} \binom{r}{2m+1} \bernoulli{2r-2m}$ collapses because $r$ runs over
 the interval $0 \leq r \leq m$ making the coefficient $\binom{r}{2m+1} = 0$ for every value of $r$.
@@ -111,7 +111,7 @@ Thus
 Taking the coefficient of $n^{2d+1}$ in~\eqref{eq:main_relation} for an integer $d$ in the range $\frac{m}{2} \leq d \leq m-1$, we get
 \begin{align*}
     &[n^{2d+1}] \left( \sum_{r} \coeffA{m}{r} \frac{1}{(2r+1) \binom{2r}{r}} n^{2r+1} + 2 \sum_{r, \; k} \coeffA{m}{r} \frac{(-1)^r}{2r-2k} \binom{r}{2k+1} \bernoulli{2r-2k} n^{2k+1} - n^{2m+1} \right) \\
-    &= \coeffA{m}{d} \frac{1}{(2d+1) \binom{2d}{d}} + 2 \sum_{r} \coeffA{m}{r} \frac{(-1)^r}{2r-2d} \binom{r}{2d+1} \bernoulli{2r-2d} - 0
+    &= \coeffA{m}{d} \frac{1}{(2d+1) \binom{2d}{d}} + 2 \sum_{r=d}^{m} \coeffA{m}{r} \frac{(-1)^r}{2r-2d} \binom{r}{2d+1} \bernoulli{2r-2d} - 0
 \end{align*}
 For every integer $d$ in the range $\frac{m}{2} \leq d \leq m-1$, the binomial coefficient $\binom{r}{2d+1} = 0$
 because $r$ runs over $0 \leq r \leq m$.
