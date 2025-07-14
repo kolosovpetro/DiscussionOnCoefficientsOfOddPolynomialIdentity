@@ -85,15 +85,17 @@ we collapse the common terms across two sums
 Assuming that $\coeffA{m}{r}$ is defined by the odd-power identity~\eqref{eq:odd-power-identity},
 we obtain the following relation for polynomials in $n$
 \begin{equation*}
-    \sum_{r} \coeffA{m}{r} \frac{1}{(2r+1) \binom{2r}r} n^{2r+1}
-    + 2 \sum_{r, \; \mathrm{odd \; \ell}} \coeffA{m}{r} \frac{(-1)^r}{2r+1-\ell} \binom{r}{\ell} \bernoulli{2r+1-\ell} n^{\ell}
+    \sum_{r=0}^{m} \coeffA{m}{r} \frac{1}{(2r+1) \binom{2r}r} n^{2r+1}
+    + 2 \sum_{r=0}^{m} \sum_{\mathrm{odd \; \ell}} \coeffA{m}{r} \frac{(-1)^r}{2r+1-\ell} \binom{r}{\ell} \bernoulli{2r+1-\ell} n^{\ell}
     \equiv n^{2m+1}
 \end{equation*}
 Replacing odd $\ell$ by $\ell = 2k+1$ we get
 \begin{align}
     \label{eq:main_relation}
-    &\sum_{r} \coeffA{m}{r} \frac{1}{(2r+1) \binom{2r}{r}} n^{2r+1} + 2 \sum_{r, \; k} \coeffA{m}{r} \frac{(-1)^r}{2r-2k} \binom{r}{2k+1} \bernoulli{2r-2k} n^{2k+1}  \equiv n^{2m+1} \\
-    &\sum_{r} \coeffA{m}{r} \frac{1}{(2r+1) \binom{2r}{r}} n^{2r+1} + 2 \sum_{r, \; k} \coeffA{m}{r} \frac{(-1)^r}{2r-2k} \binom{r}{2k+1} \bernoulli{2r-2k} n^{2k+1} - n^{2m+1} = 0 \nonumber
+    &\sum_{r=0}^{m} \coeffA{m}{r} \frac{1}{(2r+1) \binom{2r}{r}} n^{2r+1} + 2 \sum_{r=0}^{m} \sum_{k} \coeffA{m}{r} \frac{(-1)^r}{2r-2k} \binom{r}{2k+1} \bernoulli{2r-2k} n^{2k+1}  \equiv n^{2m+1} \\
+    &\sum_{r=0}^{m} \coeffA{m}{r} \frac{1}{(2r+1) \binom{2r}{r}} n^{2r+1} + 2 \sum_{r=0}^{m} \sum_{k} \coeffA{m}{r} \frac{(-1)^r}{2r-2k} \binom{r}{2k+1} \bernoulli{2r-2k} n^{2k+1} - n^{2m+1} = 0 \nonumber \\
+    &\sum_{r=0}^{m} \coeffA{m}{r} \frac{1}{(2r+1) \binom{2r}{r}} n^{2r+1} + 2 \sum_{r=0}^{m} \sum_{k} \coeffA{m}{r} \frac{(-1)^r}{2(r-k)} \binom{r}{2k+1} \bernoulli{2r-2k} n^{2k+1} - n^{2m+1} = 0 \nonumber \\
+    &\sum_{r=0}^{m} \coeffA{m}{r} \frac{1}{(2r+1) \binom{2r}{r}} n^{2r+1} + \sum_{r=0}^{m} \sum_{k} \coeffA{m}{r} \frac{(-1)^r}{r-k} \binom{r}{2k+1} \bernoulli{2r-2k} n^{2k+1} - n^{2m+1} = 0 \nonumber
 \end{align}
 We now fix the unused values of $\coeffA{m}{r}$ so that $\coeffA{m}{r} = 0$ for every $r < 0$ or $r > m$.
 
@@ -105,32 +107,37 @@ Taking the coefficient of $n^{2m+1}$ in~\eqref{eq:main_relation} yields
 because $\coeffA{m}{m} \frac{1}{(2m+1) \binom{2m}{m}} = 1$.
 
 That's may not be immediately clear why the coefficient of $n^{2m+1}$ in~\eqref{eq:main_relation} is $(2m+1)\binom{2m}{m}$.
-To take the coefficient of $n^{2m+1}$ we fix $r=m$ in $\sum_{r} \coeffA{m}{r} \frac{1}{(2r+1) \binom{2r}{r}} n^{2r+1}$
-and $k=m$ in $2 \sum_{r, \; k} \coeffA{m}{r} \frac{(-1)^r}{2r-2k} \binom{r}{2k+1} \bernoulli{2r-2k} n^{2k+1}$, see ~\eqref{eq:main_relation}
+To extract the coefficient of $n^{2m+1}$ from the expression~\eqref{eq:main_relation},
+we isolate the relevant terms by setting $r = m$ in the first sum and $k = m$ in the second sum.
+This gives
 \begin{align*}
-    &[n^{2m+1}] \left( \sum_{r} \coeffA{m}{r} \frac{1}{(2r+1) \binom{2r}{r}} n^{2r+1}
-                    + 2 \sum_{r, \; k} \coeffA{m}{r} \frac{(-1)^r}{2r-2k} \binom{r}{2k+1} \bernoulli{2r-2k} n^{2k+1} - n^{2m+1} \right) \\
-    &= \coeffA{m}{m} \frac{1}{(2m+1) \binom{2m}{m}} + 2 \sum_{r} \coeffA{m}{r} \frac{(-1)^r}{2r-2m} \binom{r}{2m+1} \bernoulli{2r-2m} - 1
+[n^{2m+1}] &\left(
+                \sum_{r=0}^{m} \coeffA{m}{r} \frac{1}{(2r+1) \binom{2r}{r}} n^{2r+1}
+                + \sum_{r=0}^{m} \sum_{k=0}^{\infty} \coeffA{m}{r} \frac{(-1)^r}{r-k} \binom{r}{2k+1} \bernoulli{2r - 2k} n^{2k+1}
+                - n^{2m+1}
+\right) \\
+&= \coeffA{m}{m} \frac{1}{(2m+1) \binom{2m}{m}}
++ \sum_{r=0}^{m} \coeffA{m}{r} \frac{(-1)^r}{r - m} \binom{r}{2m+1} \bernoulli{2r - 2m}
+- 1
 \end{align*}
+
 We observe that the sum
 \begin{align*}
-    2 \sum_{r} \coeffA{m}{r} \frac{(-1)^r}{2r - 2m} \binom{r}{2m+1} \bernoulli{2r - 2m}
+    \sum_{r=0}^{m} \coeffA{m}{r} \frac{(-1)^r}{r - m} \binom{r}{2m+1} \bernoulli{2r - 2m}
 \end{align*}
 does not contribute to the determination of the coefficients because the binomial coefficient
-\(\binom{r}{2m+1}\) vanishes for all \(r \leq m\), while \(\coeffA{m}{r} = 0\) for every \(r > m\).
+$\binom{r}{2m+1}$ vanishes for all $r \leq m$, while $\coeffA{m}{r} = 0$ for every $r > m$.
 Consequently, all terms in the sum are zero, ensuring no division by zero occurs.
-
 
 Thus
 \begin{align*}
-    \coeffA{m}{m} \frac{1}{(2m+1) \binom{2m}{m}}  - 1 = 0
+    \coeffA{m}{m} \frac{1}{(2m+1) \binom{2m}{m}}  - 1 = 0 \implies \coeffA{m}{m} = (2m+1) \binom{2m}{m}
 \end{align*}
 
 Taking the coefficient of $n^{2d+1}$ for an integer $d$ in the range $\frac{m}{2} \leq d \leq m-1$ in~\eqref{eq:main_relation} gives
 \begin{align*}
-    &[n^{2d+1}] \left( \sum_{r=0}^m \coeffA{m}{r} \frac{1}{(2r+1) \binom{2r}{r}} n^{2r+1}
-    + 2 \sum_{r=0}^m \sum_k \coeffA{m}{r} \frac{(-1)^r}{2r-2k} \binom{r}{2k+1} \bernoulli{2r-2k} n^{2k+1} - n^{2m+1} \right) \\
-    &= \coeffA{m}{d} \frac{1}{(2d+1) \binom{2d}{d}} + 2 \sum_{r=0}^m \coeffA{m}{r} \frac{(-1)^r}{2r-2d} \binom{r}{2d+1} \bernoulli{2r-2d}.
+    &[n^{2d+1}] \left( \sum_{r=0}^{m} \coeffA{m}{r} \frac{1}{(2r+1) \binom{2r}{r}} n^{2r+1} + \sum_{r=0}^{m} \sum_{k} \coeffA{m}{r} \frac{(-1)^r}{r-k} \binom{r}{2k+1} \bernoulli{2r-2k} n^{2k+1} - n^{2m+1} \right) \\
+    &= \coeffA{m}{d} \frac{1}{(2d+1) \binom{2d}{d}} + \sum_{r=0}^m \coeffA{m}{r} \frac{(-1)^r}{r-d} \binom{r}{2d+1} \bernoulli{2r-2d}.
 \end{align*}
 
 For every $d \geq \frac{m}{2}$, the binomial coefficient $\binom{r}{2d+1} = 0$ for all $r \leq m$, since $2d+1 > m$.
@@ -170,13 +177,12 @@ Proceeding recursively, we can compute each coefficient $\coeffA{m}{r}$ for inte
 \[
     \frac{m}{2^{s+1}} \leq r < \frac{m}{2^s}, \quad \text{for } s = 1, 2, \ldots
 \]
-by using previously computed values $\coeffA{m}{d}$ for $d > r$, via the relation:
+by using previously computed values $\coeffA{m}{d}$ for $d > r$, via the relation
 \begin{equation*}
     \coeffA{m}{r} =
     (2r+1) \binom{2r}{r} \sum_{d = 2r+1}^{m}
     \coeffA{m}{d} \binom{d}{2r+1} \frac{(-1)^{d-1}}{d - r} \bernoulli{2d - 2r}.
 \end{equation*}
-
 
 Finally, we are capable to define the following recurrence relation for coefficient $\coeffA{m}{r}$
 \begin{definition} (Definition of coefficient $\coeffA{m}{r}$.)
