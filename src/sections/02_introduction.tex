@@ -9,7 +9,7 @@ such that identity above is true.
 Although, the recurrence relation is already given at~\cite{alekseyev2018mathoverflow}, a few key points in proof
 are worth to discuss additionally.
 
-The main idea of Alekseyev's approach was to utilize a recurrence relation to evaluate the set of coefficients $\coeffA{m}{r}$,
+The main idea of Alekseyev's approach was to utilize a recurrence relation to evaluate the set of coefficients $\coeffA{m}{r}$
 starting from the base case $\coeffA{m}{m}$ and then evaluating the next coefficient $\coeffA{m}{m-1}$
 by using backtracking, continuing similarly up to $\coeffA{m}{0}$.
 
@@ -54,8 +54,8 @@ Therefore,
         &- \left[ \sum_{t=0}^{r} \binom{r}{t} \frac{(-1)^t}{t+r+1} \bernoulli{t+r+1} n^{r-t} \right]
     \end{split}
 \end{equation*}
-Now we do not care about division by zero in $\frac{(-1)^r}{j}$, hence by simplifying
-the equation above we get
+Now we do not care about division by zero in $\frac{(-1)^r}{j}$.
+Hence, we simplify the equation above by using~\eqref{eq:combinatorial-identity} so that
 \begin{equation*}
     \begin{split}
         \sum_{k=1}^{n} k^{r} (n-k)^{r}
@@ -85,8 +85,8 @@ we obtain the following relation for polynomials in $n$
 Replacing odd $\ell$ by $k$ we get
 \begin{align}
     \label{eq:main_relation}
-    T = \sum_{r} \coeffA{m}{r} \frac{1}{(2r+1) \binom{2r}{r}} n^{2r+1}
-    + 2 \sum_{r, \; k} \coeffA{m}{r} \frac{(-1)^r}{2r-2k} \binom{r}{2k+1} \bernoulli{2r-2k} n^{2k+1} \equiv n^{2m+1}
+    &\sum_{r} \coeffA{m}{r} \frac{1}{(2r+1) \binom{2r}{r}} n^{2r+1} + 2 \sum_{r, \; k} \coeffA{m}{r} \frac{(-1)^r}{2r-2k} \binom{r}{2k+1} \bernoulli{2r-2k} n^{2k+1}  \equiv n^{2m+1} \\
+    &\sum_{r} \coeffA{m}{r} \frac{1}{(2r+1) \binom{2r}{r}} n^{2r+1} + 2 \sum_{r, \; k} \coeffA{m}{r} \frac{(-1)^r}{2r-2k} \binom{r}{2k+1} \bernoulli{2r-2k} n^{2k+1} - n^{2m+1} = 0 \nonumber
 \end{align}
 Taking the coefficient of $n^{2m+1}$ in~\eqref{eq:main_relation} yields
 \begin{align}
@@ -96,39 +96,40 @@ Taking the coefficient of $n^{2m+1}$ in~\eqref{eq:main_relation} yields
 because $\coeffA{m}{m} \frac{1}{(2m+1) \binom{2m}{m}} = 1$.
 
 That's may not be immediately clear why the coefficient of $n^{2m+1}$ in~\eqref{eq:main_relation} is $(2m+1)\binom{2m}{m}$.
+To take the coefficient of $n^{2m+1}$ we fix $r=m$ and $k=m$ in~\eqref{eq:main_relation}
 \begin{align*}
-    [n^{2m+1}] T = \coeffA{m}{m} \frac{1}{(2m+1) \binom{2m}{m}}
-                 + 2 \sum_{r} \coeffA{m}{r} \frac{(-1)^r}{2r-2m} \binom{r}{2m+1} \bernoulli{2r-2m}
-                \equiv 1
+    &[n^{2m+1}] \left( \sum_{r} \coeffA{m}{r} \frac{1}{(2r+1) \binom{2r}{r}} n^{2r+1} + 2 \sum_{r, \; k} \coeffA{m}{r} \frac{(-1)^r}{2r-2k} \binom{r}{2k+1} \bernoulli{2r-2k} n^{2k+1} - n^{2m+1} \right) \\
+    &= \coeffA{m}{m} \frac{1}{(2m+1) \binom{2m}{m}} + 2 \sum_{r} \coeffA{m}{r} \frac{(-1)^r}{2r-2m} \binom{r}{2m+1} \bernoulli{2r-2m} - 1
 \end{align*}
 The sum $2 \sum_{r} \coeffA{m}{r} \frac{(-1)^r}{2r-2m} \binom{r}{2m+1} \bernoulli{2r-2m}$ collapses because $r$ runs over
 the interval $0 \leq r \leq m$ making the coefficient $\binom{r}{2m+1} = 0$ for every value of $r$.
-
-Taking the coefficient of $n^{2d+1}$ for an integer $d$ in the range $\frac{m}{2} \leq d < m$, we get
+Thus
 \begin{align*}
-[n^{2d+1}] T = \coeffA{m}{d} \frac{1}{(2d+1) \binom{2d}{d}}
-+ 2 \sum_{r} \coeffA{m}{r} \frac{(-1)^r}{2r-2d} \binom{r}{2d+1} \bernoulli{2r-2d}
-\equiv 0
+    \coeffA{m}{m} \frac{1}{(2m+1) \binom{2m}{m}}  - 1 = 0
 \end{align*}
+
+Taking the coefficient of $n^{2d+1}$ in~\eqref{eq:main_relation} for an integer $d$ in the range $\frac{m}{2} \leq d < m$, we get
+\begin{align*}
+    &[n^{2d+1}] \left( \sum_{r} \coeffA{m}{r} \frac{1}{(2r+1) \binom{2r}{r}} n^{2r+1} + 2 \sum_{r, \; k} \coeffA{m}{r} \frac{(-1)^r}{2r-2k} \binom{r}{2k+1} \bernoulli{2r-2k} n^{2k+1} - n^{2m+1} \right) \\
+    &= \coeffA{m}{d} \frac{1}{(2d+1) \binom{2d}{d}} + 2 \sum_{r} \coeffA{m}{r} \frac{(-1)^r}{2r-2d} \binom{r}{2d+1} \bernoulli{2r-2d} - 0
+\end{align*}
+For every integer $d$ in the range $\frac{m}{2} \leq d < m$, the binomial coefficient $\binom{r}{2d+1} = 0$
+because $r$ runs over $0 \leq r \leq m$.
+Thus, the sum $2 \sum_{r} \coeffA{m}{r} \frac{(-1)^r}{2r-2d} \binom{r}{2d+1} \bernoulli{2r-2d}$ collapses.
+Consider the corner case, we fix $r=m$ and $d=\frac{m}{2}$ then
+\begin{align*}
+    \binom{r}{2d+1} = \binom{m}{m+1} = 0
+\end{align*}
+
+Therefore, for every integer $d$ in the range $\frac{m}{2} \leq d < m$
 \begin{align}
     \label{eq:question_2}
     \coeffA{m}{d} = 0
 \end{align}
-because we focus on sum $2 \sum_{r, \; k} \coeffA{m}{r} \frac{(-1)^r}{2r-2k} \binom{r}{2k+1} \bernoulli{2r-2k} n^{2k+1}$,
-in particular on $n^{2k+1}$ and binomial coefficient $\binom{r}{2k+1}$.
 
-For instance, if we have to get coefficient of $n^{2d+1}$ in range $\frac{m}{2} \leq d < m$, we set $d=m-1$, thus
-we have to get coefficient of $m-1$ in
-$2 \sum_{r, \; k} \coeffA{m}{r} \frac{(-1)^r}{2r-2k} \binom{r}{2k+1} \bernoulli{2r-2k} n^{2k+1}$.
-
-Therefore, we set $k=m-1$ and $r=m-1$ which implies that $\binom{r}{2k+1}=\binom{m-1}{2m-1} = 0$, hence
-$\coeffA{m}{m-1} \frac{1}{(2m-1) \binom{2m-2}{m-1}} n^{2m-1} = 0$.
-
-The same principle applies for every $d$ in the range $\frac{m}{2} \leq d < m$, because $r=\frac{m}{2}$ and $k=\frac{m}{2}$
-means that $\binom{r}{2k+1} = \binom{\frac{m}{2}}{m+1} = 0$.
-
-To summarize, the value of $k$ should be in range $k \leq \frac{d-1}{2}$ so that binomial coefficient $\binom{d}{2k+1}$
+To summarize, the value of $d$ should be in the range $d \leq \frac{m-1}{2}$ so that binomial coefficient $\binom{r}{2d+1}$
 is non-zero.
+For example, let be $r=m$ and $d=\frac{m-1}{2}$ then $\binom{r}{2d+1} = \binom{m}{m} = 1$ and so on for each $d \leq \frac{m-1}{2}$.
 
 Taking the coefficient of $n^{2d+1}$ for $d$ in the range $\frac{m}{4} \leq d < \frac{m}{2}$ we get
 \begin{align}
