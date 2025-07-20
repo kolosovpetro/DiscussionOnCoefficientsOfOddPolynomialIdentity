@@ -13,6 +13,9 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - More clear explanations
 - Add abstract
 - Fix metadata
+- Fix questions
+- Remove unused figures
+- Add conclusion
 
 ## [1.0.3] - 2025-07-14
 
