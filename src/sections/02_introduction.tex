@@ -66,9 +66,7 @@ We can notice that
     \end{cases}
 \end{equation}
 An elegant proof of the binomial identity~\eqref{eq:combinatorial-identity} is done by Markus Scheuer in~\cite{scheuer2023mathstackexchange}.
-
 In particular, the equation~\eqref{eq:combinatorial-identity} is zero for $0< t \leq j$.
-
 To utilize the equation~\eqref{eq:combinatorial-identity}, we have to move $j=0$ out of summation
 in~\eqref{eq:rearranging-terms} to avoid division by zero in $\frac{(-1)^r}{j}$.
 Therefore,
@@ -121,13 +119,12 @@ evaluate the values of $\coeffA{m}{0}, \coeffA{m}{1}, \ldots, \coeffA{m}{m}$.
 We now fix the unused values of $\coeffA{m}{r}$ so that $\coeffA{m}{r} = 0$ for every $r < 0$ or $r > m$.
 
 Taking the coefficient of $n^{2m+1}$ in~\eqref{eq:main_relation} yields
-\begin{align}
-    \label{eq:question_1}
+\begin{align*}
     \coeffA{m}{m} = (2m+1)\binom{2m}{m}
-\end{align}
+\end{align*}
 because $\coeffA{m}{m} \frac{1}{(2m+1) \binom{2m}{m}} = 1$.
 
-That's may not be immediately clear why the coefficient of $n^{2m+1}$ in~\eqref{eq:main_relation} is $(2m+1)\binom{2m}{m}$.
+That's may not be immediately clear why the coefficient of $n^{2m+1}$ is $(2m+1)\binom{2m}{m}$.
 To extract the coefficient of $n^{2m+1}$ from the expression~\eqref{eq:main_relation},
 we isolate the relevant terms by setting $r = m$ in the first sum,
 and $k = m$ in the second sum.
@@ -142,7 +139,6 @@ This gives
 + \sum_{r=0}^{m} \coeffA{m}{r} \frac{(-1)^r}{r - m} \binom{r}{2m+1} \bernoulli{2r - 2m}
 - 1
 \end{align*}
-
 We observe that the sum
 \begin{align*}
     \sum_{r=0}^{m} \coeffA{m}{r} \frac{(-1)^r}{r - m} \binom{r}{2m+1} \bernoulli{2r - 2m}
@@ -160,21 +156,17 @@ Taking the coefficient of $n^{2d+1}$ for an integer $d$ in the range $\frac{m}{2
     [n^{2d+1}] &\left( \sum_{r=0}^{m} \coeffA{m}{r} \frac{1}{(2r+1) \binom{2r}{r}} n^{2r+1} + \sum_{r=0}^{m} \sum_{k} \coeffA{m}{r} \frac{(-1)^r}{r-k} \binom{r}{2k+1} \bernoulli{2r-2k} n^{2k+1} - n^{2m+1} \right) \\
     &= \coeffA{m}{d} \frac{1}{(2d+1) \binom{2d}{d}} + \sum_{r=0}^m \coeffA{m}{r} \frac{(-1)^r}{r-d} \binom{r}{2d+1} \bernoulli{2r-2d}.
 \end{align*}
-
 For every $\frac{m}{2} \leq d$, the binomial coefficient $\binom{r}{2d+1}$ vanishes, because for all $r \leq m$
 holds $r < 2d+1$.
 As a particular example, when $r = m$ and $d = \frac{m}{2}$, we have
 \begin{align*}
     \binom{m}{m+1} = 0.
 \end{align*}
-
 Therefore, the entire sum involving $\binom{r}{2d+1}$ vanishes, and we conclude
 \begin{align*}
     \coeffA{m}{d} \frac{1}{(2d+1) \binom{2d}{d}} = 0 \implies \coeffA{m}{d} = 0.
 \end{align*}
-
 Hence, for all integers $d$ such that $\frac{m}{2} \leq d \leq m-1$, the coefficient $\coeffA{m}{d} = 0$.
-
 In contrast, for values $d \leq \frac{m}{2} - 1$, the binomial coefficient $\binom{r}{2d+1}$ can be nonzero; for instance, if $r = m$ and $d = \frac{m}{2} - 1$, then
 \begin{align*}
     \binom{m}{m - 1} \neq 0,
@@ -182,12 +174,10 @@ In contrast, for values $d \leq \frac{m}{2} - 1$, the binomial coefficient $\bin
 allowing the corresponding terms to contribute to the determination of $\coeffA{m}{d}$.
 
 Taking the coefficient of $n^{2d+1}$ for $d$ in the range $\frac{m}{4} \leq d < \frac{m}{2}$ in~\eqref{eq:main_relation}, we obtain
-\begin{align}
-    \label{eq:question_3}
+\begin{align*}
     \coeffA{m}{d} \frac{1}{(2d+1) \binom{2d}{d}}
     + 2 (2m+1) \binom{2m}{m} \binom{m}{2d+1} \frac{(-1)^m}{2m - 2d} \bernoulli{2m - 2d} = 0.
-\end{align}
-
+\end{align*}
 Solving for $\coeffA{m}{d}$ yields
 \begin{equation*}
     \coeffA{m}{d}
@@ -221,10 +211,8 @@ Finally, we define the following recurrence relation for coefficients $\coeffA{m
 \end{definition}
 where $\bernoulli{t}$ are Bernoulli numbers~\cite{bateman1953higher}.
 It is assumed that $\bernoulli{1}=\frac{1}{2}$.
-
 For example,
 \input{sections/figures/05_fig_coefficients_a}
-
 Properties of the coefficients $\coeffA{m}{r}$
 \begin{itemize}
     \item $\coeffA{m}{m} = \binom{2m}{m}$
