@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 ### Changed
 
 - Refactor complex equations
+- More clear explanations
 
 ## [1.0.3] - 2025-07-14
 
