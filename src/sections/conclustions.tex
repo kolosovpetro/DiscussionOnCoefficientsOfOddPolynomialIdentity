@@ -1,11 +1,11 @@
-﻿We have investigated a class of polynomial identities representing odd powers $n^{2m+1}$ as double sums of the form
+We have investigated a class of polynomial identities representing odd powers $n^{2m+1}$ as double sums of the form
 \begin{align*}
-    n^{2m+1} = \sum_{r=0}^{m} \sum_{k=1}^{n} \coeffA{m}{r} k^r (n-k)^r,
+    n^{2m+1} = \sum_{r=0}^{m} \sum_{k=1}^{n} \coeffA{m}{r} k^r (n-k)^r
 \end{align*}
 and focused on explicitly determining the real coefficients $\coeffA{m}{r}$.
 By employing the Binomial theorem and Faulhaber’s formula, we derived a recurrence relation
 \begin{align*}
     \coeffA{m}{r}
-    = (2r+1) \binom{2r}{r} \sum_{d = 2r+1}^{m} \coeffA{m}{d} \binom{d}{2r+1} \frac{(-1)^{d-1}}{d-r} \bernoulli{2d-2r},
+    = (2r+1) \binom{2r}{r} \sum_{d = 2r+1}^{m} \coeffA{m}{d} \binom{d}{2r+1} \frac{(-1)^{d-1}}{d-r} \bernoulli{2d-2r}
 \end{align*}
 which allows for computation of all coefficients $\coeffA{m}{r}$.
