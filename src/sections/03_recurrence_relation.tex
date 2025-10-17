@@ -31,11 +31,6 @@ By applying Faulhaber's formula~\eqref{eq:modified-faulhabers-formula} to $\sum_
     &= \sum_{t=0}^{r} (-1)^t \binom{r}{t} n^{r-t} \left[ \left( \frac{1}{t+r+1} \sum_{j} \binom{t+r+1}{j} \bernoulli{j} n^{t+r+1-j} \right) - \frac{\bernoulli{t+r+1}}{t+r+1} \right] \\
     &= \sum_{t=0}^{r} \binom{r}{t} \frac{(-1)^t}{t+r+1} \left[ \left( \sum_{j} \binom{t+r+1}{j} \bernoulli{j} n^{2r+1-j}  \right) - \bernoulli{t+r+1} n^{r-t} \right]
 \end{align*}
-%By moving the common term $\frac{(-1)^t}{t+r+1}$ out of brackets
-%\begin{align*}
-%    \sum_{k=1}^{n} k^{r} (n-k)^{r}
-%    = \sum_{t=0}^{r} \binom{r}{t} \frac{(-1)^t}{t+r+1} \left[ \left( \sum_{j} \binom{t+r+1}{j} \bernoulli{j} n^{2r+1-j}  \right) - \bernoulli{t+r+1} n^{r-t} \right]
-%\end{align*}
 By expanding brackets
 \begin{align*}
     \sum_{k=1}^{n} k^{r} (n-k)^{r}
@@ -57,9 +52,8 @@ By rearranging the sums we obtain
 \end{align}
 We can notice that
 \input{sections/equations/01_altering_binomial_identity_lemma}
-To simplify~\eqref{eq:rearranging-terms} using lemma~\eqref{lem:piecewise-binomial-identity}, we have to move $j=0$ out of
-the sum $\Sigma$
-in~\eqref{eq:rearranging-terms} to avoid division by zero in $\frac{(-1)^r}{j}$.
+To simplify equation~\eqref{eq:rearranging-terms} using binomial identity~\eqref{lem:piecewise-binomial-identity}, we have to move $j=0$ out of
+summation, to avoid division by zero in $\frac{(-1)^r}{j}$.
 Therefore,
 \begin{equation*}
     \begin{split}
@@ -69,7 +63,7 @@ Therefore,
         &- \left[ \sum_{t} \binom{r}{t} \frac{(-1)^t}{t+r+1} \bernoulli{t+r+1} n^{r-t} \right]
     \end{split}
 \end{equation*}
-Hence, we simplify the equation~\eqref{eq:rearranging-terms} by using lemma~\eqref{lem:piecewise-binomial-identity}
+Hence, we simplify equation~\eqref{eq:rearranging-terms} by using binomial identity~\eqref{lem:piecewise-binomial-identity}
 \begin{equation*}
     \begin{split}
         \sum_{k=1}^{n} k^{r} (n-k)^{r}
@@ -78,7 +72,7 @@ Hence, we simplify the equation~\eqref{eq:rearranging-terms} by using lemma~\eqr
         &- \left[ \sum_{t} \binom{r}{t} \frac{(-1)^t}{t+r+1} \bernoulli{t+r+1} n^{r-t} \right]
     \end{split}
 \end{equation*}
-By setting $\ell=2r-j+1$ to the sum $\sum_{j=1}^{\infty}$, and $\ell=r-t$ to the sum $\sum_{t}$,
+By setting $\ell=2r-j+1$ to $\sum_{j=1}^{\infty}$, and $\ell=r-t$ to $\sum_{t}$,
 we collapse common terms across two sums, thus
 \begin{align*}
     \sum_{k=1}^{n} k^{r} (n-k)^{r}
@@ -87,7 +81,7 @@ we collapse common terms across two sums, thus
     &- \left[ \sum_{\ell} \binom{r}{\ell} \frac{(-1)^{r-\ell}}{2r+1-\ell} \bernoulli{2r+1-\ell} n^{\ell} \right]\\
     &= \frac{1}{(2r+1) \binom{2r}r} n^{2r+1} + 2 \sum_{\mathrm{odd \; \ell}} \frac{(-1)^r}{2r+1-\ell} \binom{r}{\ell} \bernoulli{2r+1-\ell} n^{\ell}
 \end{align*}
-By replacing odd $\ell = 2k+1$, and by simplifying 2's, we get
+By replacing odd $\ell = 2k+1$, we get
 \begin{proposition}[Bivariate Faulhaber's Formula]
     \label{prop:bivariate-faulhabers-formula}
     \begin{align*}
@@ -96,39 +90,29 @@ By replacing odd $\ell = 2k+1$, and by simplifying 2's, we get
         + \sum_{k=0}^{\infty} \frac{(-1)^r}{r-k} \binom{r}{2k+1} \bernoulli{2r-2k} n^{2k+1}
     \end{align*}
 \end{proposition}
-
 Assuming that coefficients $\coeffA{m}{r}$ are defined
 by the odd-power identity~\eqref{eq:odd-power-identity},
 we obtain the following relation for polynomials in $n$
-\begin{align*}
-    \sum_{r=0}^{m} \coeffA{m}{r} \frac{1}{(2r+1) \binom{2r}{r}} n^{2r+1} + \sum_{r=0}^{m} \sum_{k=0}^{\infty} \coeffA{m}{r} \frac{(-1)^r}{r-k} \binom{r}{2k+1} \bernoulli{2r-2k} n^{2k+1}  - n^{2m+1} = 0
-\end{align*}
-We denote it as
 \begin{align}
     \label{eq:generating-function}
-    F_{m} = \sum_{r=0}^{m} \coeffA{m}{r} \frac{1}{(2r+1) \binom{2r}{r}} n^{2r+1} + \sum_{r=0}^{m} \sum_{k=0}^{\infty} \coeffA{m}{r} \frac{(-1)^r}{r-k} \binom{r}{2k+1} \bernoulli{2r-2k} n^{2k+1}  - n^{2m+1}
+    R_{m} = \sum_{r=0}^{m} \coeffA{m}{r} \frac{1}{(2r+1) \binom{2r}{r}} n^{2r+1} + \sum_{r=0}^{m} \sum_{k=0}^{\infty} \coeffA{m}{r} \frac{(-1)^r}{r-k} \binom{r}{2k+1} \bernoulli{2r-2k} n^{2k+1}  - n^{2m+1} \equiv 0
 \end{align}
-Basically, the relation~\eqref{eq:generating-function} is the generating function we utilize to
-evaluate the values of $\coeffA{m}{m}, \coeffA{m}{m-1}, \ldots, \coeffA{m}{0}$.
 We now fix the unused values of $\coeffA{m}{r}$ so that $\coeffA{m}{r} = 0$ for every $r < 0$ or $r > m$.
-
-Extracting the coefficient of $n^{2m+1}$ in~\eqref{eq:generating-function} yields
+By extracting the coefficient of $n^{2m+1}$ in~\eqref{eq:generating-function} yields
 \begin{align*}
     \coeffA{m}{m} = (2m+1)\binom{2m}{m}
 \end{align*}
-because $\coeffA{m}{m} \frac{1}{(2m+1) \binom{2m}{m}} = 1$.
-
+because $[n^{2m+1}]R_m = \coeffA{m}{m} \frac{1}{(2m+1) \binom{2m}{m}} - 1 = 0$.
 That's may not be immediately clear why the coefficient of $n^{2m+1}$ is $(2m+1)\binom{2m}{m}$.
 To extract the coefficient of $n^{2m+1}$ from the generating function~\eqref{eq:generating-function},
 we isolate the relevant terms by setting $r = m$ in the first sum,
-and $k = m$ in the second sum.
-This gives
+and $k = m$ in the second sum, which gives
 \begin{align*}
 [n^{2m+1}]
-    F_{m}
+    R_{m}
     = \coeffA{m}{m} \frac{1}{(2m+1) \binom{2m}{m}}
     + \sum_{r=0}^{m} \coeffA{m}{r} \frac{(-1)^r}{r - m} \binom{r}{2m+1} \bernoulli{2r - 2m}
-    - 1
+    - 1 = 0
 \end{align*}
 We observe that the sum
 \begin{align*}
@@ -141,11 +125,10 @@ Thus,
 \begin{align*}
     \coeffA{m}{m} \frac{1}{(2m+1) \binom{2m}{m}}  - 1 = 0 \implies \coeffA{m}{m} = (2m+1) \binom{2m}{m}
 \end{align*}
-
 Taking the coefficient of $n^{2d+1}$ for an integer $d$ in the range $\frac{m}{2} \leq d \leq m-1$ in~\eqref{eq:generating-function} gives
 \begin{align*}
 [n^{2d+1}]
-    F_m = \coeffA{m}{d} \frac{1}{(2d+1) \binom{2d}{d}} + \sum_{r=0}^m \coeffA{m}{r} \frac{(-1)^r}{r-d} \binom{r}{2d+1} \bernoulli{2r-2d}.
+    R_m = \coeffA{m}{d} \frac{1}{(2d+1) \binom{2d}{d}} + \sum_{r=0}^m \coeffA{m}{r} \frac{(-1)^r}{r-d} \binom{r}{2d+1} \bernoulli{2r-2d} = 0
 \end{align*}
 For every $\frac{m}{2} \leq d$, the binomial coefficient $\binom{r}{2d+1}$ vanishes, because for all $r \leq m$
 holds $r < 2d+1$.
@@ -164,7 +147,6 @@ In contrast, for values $d \leq \frac{m}{2} - 1$, the binomial coefficient $\bin
     \binom{m}{m - 1} \neq 0,
 \end{align*}
 allowing the corresponding terms to contribute to the determination of $\coeffA{m}{d}$.
-
 Taking the coefficient of $n^{2d+1}$ for $d$ in the range $\frac{m}{4} \leq d < \frac{m}{2}$ in~\eqref{eq:generating-function}, we obtain
 \begin{align*}
     \coeffA{m}{d} \frac{1}{(2d+1) \binom{2d}{d}}
@@ -175,7 +157,6 @@ Solving for $\coeffA{m}{d}$ yields
     \coeffA{m}{d}
     = (-1)^{m-1} \frac{(2m+1)!}{d! \, d! \, m! \, (m - 2d - 1)!} \cdot \frac{1}{m - d} \bernoulli{2m - 2d}.
 \end{equation*}
-
 Proceeding recursively, we can compute each coefficient $\coeffA{m}{r}$ for integers $r$ in the ranges
 $\frac{m}{2^{s+1}} \leq r < \frac{m}{2^s}$ for $s = 1, 2, \ldots$,
 by using previously computed values $\coeffA{m}{d}$
@@ -184,7 +165,6 @@ by using previously computed values $\coeffA{m}{d}$
     (2r+1) \binom{2r}{r} \sum_{d = 2r+1}^{m}
     \coeffA{m}{d} \binom{d}{2r+1} \frac{(-1)^{d-1}}{d - r} \bernoulli{2d - 2r}.
 \end{equation*}
-
 Finally, we define the following recurrence relation for coefficients $\coeffA{m}{r}$
 \begin{proposition}
     For integers $m$ and $r$
@@ -214,10 +194,14 @@ Properties of the coefficients $\coeffA{m}{r}$
     \item $\coeffA{m}{r}$ are all integers up to row $m = 11$.
     \item Row sums: $\sum_{r=0}^{m} \coeffA{m}{r} = 2^{2m+1} - 1$.
 \end{itemize}
-Thus, for non-negative integers $n$ and $m$ holds
-\begin{align*}
-    n^{2m+1} = \sum_{k=1}^{n} \sum_{r=0}^{m} \coeffA{m}{r} k^r (n-k)^r
-\end{align*}
+\begin{proposition}[Odd power identity]
+    \label{prop:odd-power-identity}
+    For non-negative integers $n$ and $m$,
+    there is a set of coefficients $\coeffA{m}{0}, \coeffA{m}{1}, \ldots, \coeffA{m}{m}$ such that
+    \begin{align*}
+        n^{2m+1} = \sum_{r=0}^{m} \sum_{k=1}^{n} \coeffA{m}{r} k^r (n-k)^r
+    \end{align*}
+\end{proposition}
 For example,
 \begin{itemize}
     \item $1^{2m+1} = \sum_{r=0}^{m} \coeffA{m}{r} \left[ 0^r  \right]$
@@ -230,12 +214,3 @@ For example,
 We define $x^0 = 1$ for all $x$, see~\cite[~p. 162]{graham1994concrete}.
 This is because when $k=n$ and $r=0$ the term $k^r (n-k)^r = n^0 \cdot 0^0$, thus we define $x^0 = 1$
 for all $x$.
-%For instance,
-%\begin{align*}
-%    n^3 &= \sum_{k=1}^{n} 6k(n-k) + 1 \\
-%    n^5 &= \sum_{k=1}^{n} 30k^2(n-k)^2 + 1 \\
-%    n^7 &= \sum_{k=1}^{n} 140 k^3 (n-k)^3 - 14k(n-k) + 1 \\
-%    n^9 &= \sum_{k=1}^{n} 630 k^4(n-k)^4 - 120k(n-k) + 1 \\
-%    n^{11} &= \sum_{k=1}^{n} 2772 k^5(n-k)^5 + 660 k^2(n-k)^2 - 1386k(n-k) + 1 \\
-%    n^{13} &= \sum_{k=1}^{n} 51480 k^7(n-k)^7 - 60060 k^3(n-k)^3 + 491400k^2(n-k)^{2} - 450054k(n-k) + 1
-%\end{align*}

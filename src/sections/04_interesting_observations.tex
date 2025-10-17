@@ -6,7 +6,7 @@ We may see it by comparing the Pascal's identity itself~\cite{macmillan2011proof
     ^{k+1}-1=\sum _{p=0}^{k}{\binom {k+1}{p}}(1^{p}+2^{p}+\dots +n^{p})
 \end{align*}
 with identity in terms of bivariate function $k(n-k)$ and numbers $\coeffA{m}{r}$
-\begin{proposition}[Bivariate Pascal's identity]
+\begin{corollary}[Bivariate Pascal's identity]
     \begin{align*}
     (n+1)
         ^{2k+1} - 1
@@ -14,4 +14,80 @@ with identity in terms of bivariate function $k(n-k)$ and numbers $\coeffA{m}{r}
         &= \sum_{p=0}^{k} \coeffA{k}{p} \left[ n^p + (2n-2)^p + (3n-6)^p + (4n-12)^p + \cdots +  n^p  \right] \\
         &= \sum_{p=0}^{k} \coeffA{k}{p} \sum_{r=1}^{n} (r (n+1-r))^p
     \end{align*}
+\end{corollary}
+\begin{definition}[Bivariate sum $T_m$]
+    For integers $n,k$ and $m \geq 0$
+    \label{def:bivariate-sum-Tm}
+    \begin{align*}
+        T_{m}(n,k) = \sum_{r=0}^{m} \coeffA{m}{r} k^r (n-k)^r
+    \end{align*}
+\end{definition}
+
+\begin{proposition}[Symmetry of $T_m$]
+    \label{prop:Tm-symmetry}
+    For integers $n$ and $k$
+    \begin{align*}
+        T_{m} (n, k) = T_{m} (n, n-k)
+    \end{align*}
+\end{proposition}
+\begin{proposition}[Forward Recurrence for $T_m$]
+    \label{prop:Tm-recurrence-forward}
+    \begin{align*}
+        T_{m} (n,k) = \sum_{t=1}^{m+1} (-1)^{t+1} \binom{m+1}{t} T_{m} (n+t, k)
+    \end{align*}
+    \begin{proof}
+        The polynomial $T_{m} (n,k)$ is a polynomial of degree $m$ in $n$.
+        Thus, the forward difference with respect to $n$ is
+        $\Delta^{m+1} T_{m} (n, k) = \sum_{t=0}^{m+1} (-1)^{t} \binom{m+1}{t} T_{m} (n+t, k) = 0$.
+        By isolating $(-1)^{0} \binom{m+1}{0} T_{m} (n-0, k)$ yields
+        $T_{m} (n, k) = (-1) \sum_{t=1}^{m+1} (-1)^{t} \binom{m+1}{t} T_{m} (n+t, k)$.
+    \end{proof}
+\end{proposition}
+
+\begin{proposition}[Odd power forward decomposition]
+    \label{prop:odd-power-decomposition-forward}
+    For non-negative integers $m$ and $n$
+    \begin{align*}
+        n^{2m+1} = \sum_{k=1}^{n} \sum_{t=1}^{m+1} (-1)^{t+1} \binom{m+1}{t} T_{m} (n+t, k)
+    \end{align*}
+    \begin{proof}
+        Direct consequence of~\eqref{prop:odd-power-identity}
+        and forward recurrence~\eqref{prop:Tm-recurrence-forward}.
+    \end{proof}
+\end{proposition}
+For example: $3^5 = \binom{3}{1} 1023 - \binom{3}{2} 2643 + \binom{3}{3} 5103$.
+\begin{proposition}[Forward Recurrence for $T_m$ multifold]
+    For non-negative integers $m,n$ and $s \geq 1$
+    \label{prop:Tm-recurrence-forward-multifold}
+    \begin{align*}
+        T_{m} (n,k) = \sum_{t=1}^{m+s} (-1)^{t+1} \binom{m+s}{t} T_{m} (n+t, k)
+    \end{align*}
+\end{proposition}
+
+\begin{proposition}[Odd power forward decomposition multifold]
+    \label{prop:odd-power-decomposition-forward-multifold}
+    For non-negative integers $m$, $n$ and $s \geq 1$
+    \begin{align*}
+        n^{2m+1} = \sum_{k=1}^{n} \sum_{t=1}^{m+s} (-1)^{t+1} \binom{m+s}{t} T_{m} (n+t, k)
+    \end{align*}
+    \begin{proof}
+        Direct consequence of~\eqref{prop:odd-power-identity}
+        and forward recurrence multifold~\eqref{prop:Tm-recurrence-forward-multifold}.
+    \end{proof}
+\end{proposition}
+\begin{proposition}[Negated binomial form]
+    \label{prop:negated-binomial-form}
+    For integers $n$ and $a$ such that $n-2a \geq 0$
+    \begin{align*}
+    (n-2a)^{2m+1} = \sum_{r=0}^{m} \sum_{k=a+1}^{n-a} \coeffA{m}{r} (k-a)^r (n-a-k)^r
+    \end{align*}
+    \begin{proof}
+        By observing the summation limits we can see that $k$ runs as $k=a+1,a+2,a+3,\ldots,a+n-a$, which
+        implies that $(k-a)=1,2,3,\ldots, n$.
+        By observing the term $(n-k-a)$ we see that $(n-k-a)=n-1,n-2,n-3,\ldots,0$.
+        Thus, by reindexing the sum
+        $(n-2a)^{2m+1} = \sum_{r=0}^{m} \sum_{k=1}^{n-2a} \coeffA{m}{r} (a+k-a)^r (n-(a+k)-a)^r$
+        the statement~\eqref{prop:negated-binomial-form} is equivalent to~\eqref{prop:odd-power-identity}
+        with setting $n \rightarrow n-2a$.
+    \end{proof}
 \end{proposition}
