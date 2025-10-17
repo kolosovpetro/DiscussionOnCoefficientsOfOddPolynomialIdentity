@@ -1,4 +1,4 @@
-\documentclass[12pt,letterpaper,oneside,reqno]{amsart}
+\documentclass[10pt,letterpaper,oneside,reqno]{amsart}
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -8,9 +8,9 @@
 \usepackage{colonequals}
 \usepackage[font=small,labelfont=bf]{caption}
 \usepackage[left=1in,right=1in,bottom=1in,top=1in]{geometry}
-\usepackage[pdfpagelabels,hyperindex,colorlinks=true,linkcolor=blue,urlcolor=magenta,citecolor=green]{hyperref}
+\usepackage[unicode,pdfpagelabels,hyperindex,colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref}
 \usepackage{graphicx}
-\linespread{2.5}
+%\linespread{1.7}
 \emergencystretch=1em
 \usepackage{array}
 \usepackage{etoolbox}
@@ -22,67 +22,74 @@
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{observation}[theorem]{Observation}
 \newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{claim}[theorem]{Claim}
 \newtheorem{example}[theorem]{Example}
 \newtheorem{conjecture}[theorem]{Conjecture}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{question}[theorem]{Question}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{problem}[theorem]{Problem}
 
 \title[Discussion on coefficients of odd polynomial identity]
 {Discussion on coefficients of odd polynomial identity}
-\date{\today}
+%\date{\today}
 
 % metadata
-\email{kolosovp94@gmail.com}
-\address{Software Developer, DevOps Engineer}
-\urladdr{https://kolosovpetro.github.io}
-\subjclass[2010]{26E70, 05A30}
-\keywords{Polynomial identities,
-    Finite differences,
-    Binomial coefficients,
-    Faulhaber's formula,
-    Power sums,
-    Bernoulli numbers,
-    Combinatorics,
-    Pascal's triangle,
-    OEIS}
-\hypersetup{
-    pdftitle={Discussion on coefficients of odd polynomial identity},
-    pdfproducer={LaTeX},
-    pdfcreator={pdflatex},
-    pdfauthor={Petro Kolosov},
-    pdfsubject={Explicit Coefficient Formulas for Odd Power Polynomial Identities via Bernoulli Numbers, the Binomial Theorem, and Faulhaber's Formula},
-    pdfkeywords={Polynomial identities,
-        Finite differences,
-        Binomial coefficients,
-        Faulhaber's formula,
-        Power sums,
-        Bernoulli numbers,
-        Combinatorics,
-        Pascal's triangle,
-        OEIS}
-}
+%\email{kolosovp94@gmail.com}
+%\address{Software Developer, DevOps Engineer}
+%\urladdr{https://kolosovpetro.github.io}
+%\subjclass[2010]{05A19, 05A10, 41A15, 11B83, 68W30}
+%\keywords{Polynomial identities,
+%    Finite differences,
+%    Binomial coefficients,
+%    Faulhaber's formula,
+%    Sums of powers,
+%    Bernoulli numbers,
+%    Combinatorics,
+%    Pascal's triangle,
+%    OEIS}
+%\hypersetup{
+%    pdftitle={Discussion on coefficients of odd polynomial identity},
+%    pdfproducer={LaTeX},
+%    pdfcreator={pdflatex},
+%    pdfauthor={Petro Kolosov},
+%    pdfsubject={Discussion on coefficients of odd polynomial identity},
+%    pdfkeywords={Polynomial identities,
+%    Finite differences,
+%    Binomial coefficients,
+%    Faulhaber's formula,
+%    Sums of powers,
+%    Power sums,
+%    Bernoulli numbers,
+%    Combinatorics,
+%    Pascal's triangle,
+%    OEIS}
+%}
 
 \begin{document}
-    \begin{abstract}
-        \input{sections/01_abstract}
-    \end{abstract}
+%    \begin{abstract}
+%        \input{sections/01_abstract}
+%    \end{abstract}
 
     \maketitle
 
 
-    \section{Introduction and main results} \label{sec:introduction}
+    \section{Introduction}\label{sec:introduction}
     \input{sections/02_introduction}
 
-    \section{Conclusions}\label{sec:conclusions}
-    \input{sections/conclustions}
+
+    \section{Recurrence relation}\label{sec:recurrence-relation}
+    \input{sections/03_recurrence_relation}
+
+
+%    \section{Conclusions}\label{sec:conclusions}
+%    \input{sections/conclustions}
 
     \bibliographystyle{unsrt}
     \bibliography{DiscussionOnCoefficientsOfOddPolynomialIdentity}
-    \noindent \textbf{Version:} \input{sections/version}
-
-    \section{Questions}\label{sec:questions}
-    \input{sections/03_questions}
-
-
+%    \noindent \textbf{Version:} \input{sections/version}
 \end{document}
