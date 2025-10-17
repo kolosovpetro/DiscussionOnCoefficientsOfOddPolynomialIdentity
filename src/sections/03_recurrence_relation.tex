@@ -175,8 +175,8 @@ Solving for $\coeffA{m}{d}$ yields
 \end{equation*}
 
 Proceeding recursively, we can compute each coefficient $\coeffA{m}{r}$ for integers $r$ in the ranges
-$\frac{m}{2^{s+1}} \leq r < \frac{m}{2^s}, \quad \text{for } s = 1, 2, \ldots$,
-by using previously computed values $\coeffA{m}{d}$ for $d > r$, via the relation
+$\frac{m}{2^{s+1}} \leq r < \frac{m}{2^s}$ for $s = 1, 2, \ldots$,
+by using previously computed values $\coeffA{m}{d}$
 \begin{equation*}
     \coeffA{m}{r} =
     (2r+1) \binom{2r}{r} \sum_{d = 2r+1}^{m}
@@ -197,7 +197,7 @@ Finally, we define the following recurrence relation for coefficients $\coeffA{m
             0 & \mathrm{if} \; r<0 \; \mathrm{or} \; r>m
         \end{cases}
     \end{align*}
-    where $\bernoulli{t}$ are Bernoulli numbers~\cite{bateman1953higher}.
+    where $\bernoulli{t}$ are Bernoulli numbers~\cite{weisstein2002bernoulli}.
     It is assumed that $\bernoulli{1}=\frac{1}{2}$.
 \end{proposition}
 For example,

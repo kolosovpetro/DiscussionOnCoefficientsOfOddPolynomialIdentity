@@ -17,21 +17,21 @@ Alan~F. Beardon.
 \newblock {\em {The American Mathematical monthly}}, 99(5):403--422, 1992.
 \newblock \url{https://arxiv.org/abs/math/9205211}.
 
-\bibitem{bateman1953higher}
-Harry Bateman.
-\newblock {\em {Higher transcendental functions [volumes i-iii]}}, volume~1.
-\newblock {McGRAW-HILL book company}, 1953.
+\bibitem{sury2004identities}
+B.~Sury, Tianming Wang, and Feng-Zhen Zhao.
+\newblock Identities involving reciprocals of binomial coefficients.
+\newblock {\em {J. Integer Seq}}, 7(2):04--2, 2004.
+\newblock \url{https://cs.uwaterloo.ca/journals/JIS/VOL7/Sury/sury99.pdf}.
 
-\bibitem{kolosov2018numerator}
-Petro Kolosov.
-\newblock {Entry A302971 in The On-Line Encyclopedia of Integer Sequences},
-  2018.
-\newblock \url{https://oeis.org/A302971}.
+\bibitem{weisstein2002bernoulli}
+{Weisstein, Eric W.}
+\newblock {Bernoulli number}.
+\newblock {\em {Wolfram Research, Inc.}}, 2002.
+\newblock \url{https://mathworld.wolfram.com/BernoulliNumber.html}.
 
-\bibitem{kolosov2018denominator}
-Petro Kolosov.
-\newblock {Entry A304042 in The On-Line Encyclopedia of Integer Sequences},
-  2018.
-\newblock \url{https://oeis.org/A304042}.
+\bibitem{OEIS}
+{N. J. A. Sloane}.
+\newblock {The On-Line Encyclopedia of Integer Sequences}, {2025}.
+\newblock \url{https://oeis.org/}.
 
 \end{thebibliography}
