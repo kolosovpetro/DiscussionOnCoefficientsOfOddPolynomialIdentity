@@ -1,0 +1,49 @@
+In this manuscript we revisit an unexpected identity for odd powers, discussed in~\cite{unusual_identity_for_odd_powers}.
+For non-negative integers $n$ and $m$
+\begin{equation}
+    n^{2m+1} = \sum_{k=1}^{n} \sum_{r=0}^{m} \coeffA{m}{r} k^r (n-k)^r
+    \label{eq:odd-power-identity}
+\end{equation}
+where $\coeffA{m}{r}$ are rational coefficients.
+These coefficients are evaluated by solving a system of linear equations.
+For example,
+\begin{align*}
+    n^5 = \coeffA{2}{0} \sum_{k=1}^{n} k^0 (n-k)^0 + \coeffA{2}{1} \sum_{k=1}^{n} k^1 (n-k)^1 + \coeffA{2}{2} \sum_{k=1}^{n} k^2 (n-k)^2
+\end{align*}
+By expanding the sums $\sum_{k=1}^{n} k^r (n-k)^r$ using Faulhaber's formula~\cite{beardon1996sums}, we get
+\begin{equation*}
+    \coeffA{2}{0} n
+    + \coeffA{2}{1} \left[ \frac{1}{6} (n^3-n) \right]
+    + \coeffA{2}{2} \left[ \frac{1}{30} (n^5-n) \right] - n^5 = 0
+\end{equation*}
+By expanding the brackets and rearranging the terms
+\begin{align*}
+    30 \coeffA{2}{0} n + 5 \coeffA{2}{1} (n^3-n) + \coeffA{2}{2} (n^5-n) - 30n^5 = 0 \\
+    30 \coeffA{2}{0} - 5 \coeffA{2}{1} n + 5 \coeffA{2}{1} n^3 - \coeffA{2}{2} n + \coeffA{2}{2} n^5 - 30n^5 = 0 \\
+    n (30 \coeffA{2}{0} - 5 \coeffA{2}{1} - \coeffA{2}{2}) + 5 \coeffA{2}{1} n^3 + n^5 (\coeffA{2}{2} - 30) = 0
+\end{align*}
+Therefore,
+\begin{equation*}
+    \begin{cases}
+        30 \coeffA{2}{0} - 5 \coeffA{2}{1} - \coeffA{2}{2} &= 0 \\
+        \coeffA{2}{1} &= 0 \\
+        \coeffA{2}{2} - 30 &= 0
+    \end{cases}
+\end{equation*}
+By solving the system above, we evaluate
+\begin{equation*}
+    \begin{cases}
+        \coeffA{2}{2} &= 30 \\
+        \coeffA{2}{1} &= 0 \\
+        \coeffA{2}{0} &= 1
+    \end{cases}
+\end{equation*}
+Thus, the identity for $n^5$ is
+\begin{equation*}
+    n^5 = \sum_{k=1}^{n} 30k^2(n-k)^2 + 1
+\end{equation*}
+However, for arbitrary integer $m\geq 0$ it might be slightly complicated
+to build and solve such system of linear equations,
+especially for large value of $m$.
+Thus, this manuscript addresses this problem by providing a recurrence formula for coefficients $\coeffA{m}{r}$,
+which allows computation with ease.

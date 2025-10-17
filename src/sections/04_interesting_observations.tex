@@ -1,1 +1,17 @@
-﻿
+Interestingly enough that the odd power identity above is a Pascal-type identity
+in terms of bivariate function $k(n-k)$ and numbers $\coeffA{m}{r}$.
+We may see it by comparing the Pascal's identity itself~\cite{macmillan2011proofs}
+\begin{align*}
+(n+1)
+    ^{k+1}-1=\sum _{p=0}^{k}{\binom {k+1}{p}}(1^{p}+2^{p}+\dots +n^{p})
+\end{align*}
+with identity in terms of bivariate function $k(n-k)$ and numbers $\coeffA{m}{r}$
+\begin{proposition}[Bivariate Pascal's identity]
+    \begin{align*}
+    (n+1)
+        ^{2k+1} - 1
+        &= \sum_{p=0}^{k} \coeffA{k}{p} \left[ 1^p n^p + 2^p (n-1)^p + 3^p (n-2)^p + 4^p (n-3)^p + \cdots +  n^p (n+1-n)^p  \right] \\
+        &= \sum_{p=0}^{k} \coeffA{k}{p} \left[ n^p + (2n-2)^p + (3n-6)^p + (4n-12)^p + \cdots +  n^p  \right] \\
+        &= \sum_{p=0}^{k} \coeffA{k}{p} \sum_{r=1}^{n} (r (n+1-r))^p
+    \end{align*}
+\end{proposition}

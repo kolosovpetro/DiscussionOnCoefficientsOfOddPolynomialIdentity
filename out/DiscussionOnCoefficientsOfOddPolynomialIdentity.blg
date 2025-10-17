@@ -5,44 +5,44 @@ Reallocating 'name_of_file' (item size: 1) to 6 items.
 The style file: unsrt.bst
 Reallocating 'name_of_file' (item size: 1) to 48 items.
 Database file #1: DiscussionOnCoefficientsOfOddPolynomialIdentity.bib
-You've used 6 entries,
+You've used 9 entries,
             1791 wiz_defined-function locations,
-            490 strings with 4765 characters,
-and the built_in function-call counts, 1109 in all, are:
-= -- 106
-> -- 31
+            515 strings with 5448 characters,
+and the built_in function-call counts, 1726 in all, are:
+= -- 170
+> -- 43
 < -- 0
-+ -- 14
-- -- 8
-* -- 60
-:= -- 184
-add.period$ -- 22
-call.type$ -- 6
-change.case$ -- 6
++ -- 20
+- -- 11
+* -- 97
+:= -- 281
+add.period$ -- 34
+call.type$ -- 9
+change.case$ -- 8
 chr.to.int$ -- 0
-cite$ -- 6
-duplicate$ -- 45
-empty$ -- 120
-format.name$ -- 8
-if$ -- 241
+cite$ -- 9
+duplicate$ -- 73
+empty$ -- 187
+format.name$ -- 11
+if$ -- 378
 int.to.chr$ -- 0
-int.to.str$ -- 6
-missing$ -- 4
-newline$ -- 37
-num.names$ -- 6
-pop$ -- 16
+int.to.str$ -- 9
+missing$ -- 8
+newline$ -- 55
+num.names$ -- 9
+pop$ -- 22
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 18
+skip$ -- 26
 stack$ -- 0
-substring$ -- 66
-swap$ -- 6
+substring$ -- 116
+swap$ -- 9
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 12
-width$ -- 7
-write$ -- 73
+while$ -- 19
+width$ -- 10
+write$ -- 111
