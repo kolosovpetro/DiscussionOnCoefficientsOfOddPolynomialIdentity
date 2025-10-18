@@ -25,12 +25,13 @@ with identity in terms of bivariate function $k(n-k)$ and numbers $\coeffA{m}{r}
 
 \begin{proposition}[Symmetry of $T_m$]
     \label{prop:Tm-symmetry}
-    For integers $n$ and $k$
+    For integers $n,k$ and $m\geq 0$
     \begin{align*}
         T_{m} (n, k) = T_{m} (n, n-k)
     \end{align*}
 \end{proposition}
 \begin{proposition}[Forward Recurrence for $T_m$]
+    For integers $n,k$ and $m\geq 0$
     \label{prop:Tm-recurrence-forward}
     \begin{align*}
         T_{m} (n,k) = \sum_{t=1}^{m+1} (-1)^{t+1} \binom{m+1}{t} T_{m} (n+t, k)
@@ -57,7 +58,7 @@ with identity in terms of bivariate function $k(n-k)$ and numbers $\coeffA{m}{r}
 \end{proposition}
 For example: $3^5 = \binom{3}{1} 1023 - \binom{3}{2} 2643 + \binom{3}{3} 5103$.
 \begin{proposition}[Forward Recurrence for $T_m$ multifold]
-    For non-negative integers $m,n$ and $s \geq 1$
+    For integers $m \geq 0, \; n, \; k$ and $s \geq 1$
     \label{prop:Tm-recurrence-forward-multifold}
     \begin{align*}
         T_{m} (n,k) = \sum_{t=1}^{m+s} (-1)^{t+1} \binom{m+s}{t} T_{m} (n+t, k)
@@ -77,7 +78,7 @@ For example: $3^5 = \binom{3}{1} 1023 - \binom{3}{2} 2643 + \binom{3}{3} 5103$.
 \end{proposition}
 \begin{proposition}[Negated binomial form]
     \label{prop:negated-binomial-form}
-    For integers $n$ and $a$ such that $n-2a \geq 0$
+    For integers $n, \; a$ and $m\geq 0$ such that $n-2a \geq 0$
     \begin{align*}
     (n-2a)^{2m+1} = \sum_{r=0}^{m} \sum_{k=a+1}^{n-a} \coeffA{m}{r} (k-a)^r (n-a-k)^r
     \end{align*}
