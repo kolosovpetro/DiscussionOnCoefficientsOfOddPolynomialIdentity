@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2025-10-18
+
+### Changed
+
+- Update abstract
+- Add LaTeX build configurations
+- Fix LaTeX build scripts
+- Update acknowledgements
+- Update bibliography
+- Fix encoding script
+- Update README
+
 ## [1.0.6] - 2025-07-20
 
 ### Changed

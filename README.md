@@ -1,3 +1,17 @@
 # Discussion on coefficients of odd polynomial identity
 
+In this manuscript we revisit an unexpected identity for odd powers, discussed
+in [1].
+For non-negative integers $n$ and $m$
+$$
+n^{2m+1} = \sum_{k=1}^{n} \sum_{r=0}^{m} \mathbf{A}_{m,r} k^r (n-k)^r
+$$
+where $\mathbf{A}_{m,r}$ are rational coefficients.
+These coefficients are evaluated by solving a system of linear equations.
+However, for arbitrary integer $m\geq 0$ it might be slightly complicated
+to build and solve such system of linear equations,
+especially for large value of $m$.
+Thus, this manuscript addresses this problem by providing a recurrence formula for coefficients $\mathbf{A}_{m,r}$,
+which allows computation with ease.
+
 - https://mathoverflow.net/a/297916/113033

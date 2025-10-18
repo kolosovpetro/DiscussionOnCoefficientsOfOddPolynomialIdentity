@@ -67,7 +67,7 @@ function Build-Latex
 
         Set-Location $InitialDirectory
 
-        .\..\scripts\Test-Encoding -Autofix
+        .\..\scripts\Test-Encoding.ps1 -Autofix
 
         Write-Host "Fix encoding is complete." -ForegroundColor Green
         Write-Host "Exit Code: $LASTEXITCODE" -ForegroundColor Green
@@ -115,11 +115,11 @@ function Compile-Bibtex
         [string]$LatexFileName
     )
 
-    $WorkingDirectoryForBibtex = "$OutputDirectoryAbsPath\$LatexFileName"
+    $BibTexFileAbsPath = "$OutputDirectoryAbsPath\$LatexFileName"
 
-    Write-Host "Bibtex absolute path: $WorkingDirectoryForBibtex" -ForegroundColor Magenta
+    Write-Host "Bibtex absolute path: $BibTexFileAbsPath" -ForegroundColor Magenta
 
-    bibtex "$WorkingDirectoryForBibtex"
+    bibtex "$BibTexFileAbsPath"
 
     if ($LASTEXITCODE -ne 0)
     {

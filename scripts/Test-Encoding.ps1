@@ -11,25 +11,25 @@ param (
     [string] $SourceRoot,
     [switch] $Autofix,
     [string[]] $ExcludeExtensions = @(
-    '.dotsettings'
-)
+        '.dotsettings'
+    )
 )
 
 function Test-Encoding
 {
     param (
-    # Path to the repository root. All text files under the root will be checked for UTF-8 BOM and CRLF.
-    #
-    # By default (if nothing's passed), the script will try auto-detecting the nearest Git root.
+        # Path to the repository root. All text files under the root will be checked for UTF-8 BOM and CRLF.
+        #
+        # By default (if nothing's passed), the script will try auto-detecting the nearest Git root.
         [string] $SourceRoot,
 
-    # Makes the script to perform file modifications to bring them to the standard.
+        # Makes the script to perform file modifications to bring them to the standard.
         [switch] $Autofix,
 
-    # List of file extensions (with leading dots) to ignore. Case-insensitive.
+        # List of file extensions (with leading dots) to ignore. Case-insensitive.
         [string[]] $ExcludeExtensions = @(
-        '.dotsettings'
-    )
+            '.dotsettings'
+        )
     )
 
     Set-StrictMode -Version Latest
@@ -108,16 +108,25 @@ function Test-Encoding
 
             $bytes = [IO.File]::ReadAllBytes($fullPath) | Select-Object -First $bom.Length
 
+            # filter empty files
             if (!$bytes)
             {
                 continue
-            } # filter empty files
+            }
 
             $bytesEqualsBom = @(Compare-Object $bytes $bom -SyncWindow 0).Length -eq 0
 
             if ($bytesEqualsBom -and $Autofix)
             {
                 $fullContent = [IO.File]::ReadAllBytes($fullPath)
+
+                if ($fullContent.Count -le $bom.Length)
+                {
+                    Write-Output "Removed UTF-8 BOM from file $file"
+                    [IO.File]::WriteAllBytes($fullPath, @())
+                    continue
+                }
+
                 $newContent = $fullContent | Select-Object -Skip $bom.Length
                 [IO.File]::WriteAllBytes($fullPath, $newContent)
                 Write-Output "Removed UTF-8 BOM from file $file"
