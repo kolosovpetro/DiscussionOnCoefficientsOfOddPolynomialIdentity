@@ -7,7 +7,7 @@ Reallocating 'name_of_file' (item size: 1) to 48 items.
 Database file #1: DiscussionOnCoefficientsOfOddPolynomialIdentity.bib
 You've used 9 entries,
             1791 wiz_defined-function locations,
-            515 strings with 5448 characters,
+            515 strings with 5444 characters,
 and the built_in function-call counts, 1726 in all, are:
 = -- 170
 > -- 43
