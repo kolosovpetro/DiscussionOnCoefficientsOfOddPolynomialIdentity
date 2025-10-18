@@ -20,7 +20,7 @@ Hence,
     \sum_{k=1}^{n} k^{p}
     = \frac{1}{p+1} \left[ \sum_{j} \binom{p+1}{j} \bernoulli{j} n^{p+1-j} \right] - \frac{\bernoulli{p+1}}{p+1}
 \end{align}
-Now we expand the sum $\sum_{k=1}^{n} k^{r} (n-k)^{r}$ using Binomial theorem
+Now we expand the sum $\sum_{k=1}^{n} k^{r} (n-k)^{r}$ using binomial theorem
 \begin{align*}
     \sum_{k=1}^{n} k^{r} (n-k)^{r}
     = \sum_{k=1}^{n} k^{r} \sum_{t=0}^{r} (-1)^t \binom{r}{t} n^{r-t} k^{t}
@@ -92,22 +92,23 @@ By replacing odd $\ell = 2k+1$, we get
     \end{align*}
 \end{proposition}
 Assuming that coefficients $\coeffA{m}{r}$ are defined
-by the odd-power identity~\eqref{eq:odd-power-identity},
+by odd-power identity~\eqref{eq:odd-power-identity},
 we obtain the following relation for polynomials in $n$
 \begin{align}
     \label{eq:generating-function}
-    R_{m} = \sum_{r=0}^{m} \coeffA{m}{r} \frac{1}{(2r+1) \binom{2r}{r}} n^{2r+1} + \sum_{r=0}^{m} \sum_{k=0}^{\infty} \coeffA{m}{r} \frac{(-1)^r}{r-k} \binom{r}{2k+1} \bernoulli{2r-2k} n^{2k+1}  - n^{2m+1} \equiv 0
+    R_{m} = \sum_{r=0}^{m} \coeffA{m}{r} \frac{1}{(2r+1) \binom{2r}{r}} n^{2r+1}
+    + \sum_{r=0}^{m} \sum_{k=0}^{\infty} \coeffA{m}{r} \frac{(-1)^r}{r-k} \binom{r}{2k+1} \bernoulli{2r-2k} n^{2k+1}
+    - n^{2m+1} \equiv 0
 \end{align}
 We now fix the unused values of $\coeffA{m}{r}$ so that $\coeffA{m}{r} = 0$ for every $r < 0$ or $r > m$.
-By extracting the coefficient of $n^{2m+1}$ in~\eqref{eq:generating-function} yields
+By extracting the coefficient of $n^{2m+1}$ in~\eqref{eq:generating-function} implies
 \begin{align*}
     \coeffA{m}{m} = (2m+1)\binom{2m}{m}
 \end{align*}
 because $[n^{2m+1}]R_m = \coeffA{m}{m} \frac{1}{(2m+1) \binom{2m}{m}} - 1 = 0$.
-That's may not be immediately clear why the coefficient of $n^{2m+1}$ is $(2m+1)\binom{2m}{m}$.
-To extract the coefficient of $n^{2m+1}$ from the generating function~\eqref{eq:generating-function},
-we isolate the relevant terms by setting $r = m$ in the first sum,
-and $k = m$ in the second sum, which gives
+To extract the coefficient of $n^{2m+1}$ from the series~\eqref{eq:generating-function},
+we isolate the relevant terms by setting $r = m$,
+and $k = m$, which gives
 \begin{align*}
 [n^{2m+1}]
     R_{m}
@@ -126,7 +127,7 @@ Thus,
 \begin{align*}
     \coeffA{m}{m} \frac{1}{(2m+1) \binom{2m}{m}}  - 1 = 0 \implies \coeffA{m}{m} = (2m+1) \binom{2m}{m}
 \end{align*}
-Taking the coefficient of $n^{2d+1}$ for an integer $d$ in the range $\frac{m}{2} \leq d \leq m-1$ in~\eqref{eq:generating-function} gives
+Taking the coefficient of $n^{2d+1}$ for an integer $d$ in range $\frac{m}{2} \leq d \leq m-1$ in~\eqref{eq:generating-function} gives
 \begin{align*}
 [n^{2d+1}]
     R_m = \coeffA{m}{d} \frac{1}{(2d+1) \binom{2d}{d}} + \sum_{r=0}^m \coeffA{m}{r} \frac{(-1)^r}{r-d} \binom{r}{2d+1} \bernoulli{2r-2d} = 0
@@ -148,7 +149,7 @@ In contrast, for values $d \leq \frac{m}{2} - 1$, the binomial coefficient $\bin
     \binom{m}{m - 1} \neq 0,
 \end{align*}
 allowing the corresponding terms to contribute to the determination of $\coeffA{m}{d}$.
-Taking the coefficient of $n^{2d+1}$ for $d$ in the range $\frac{m}{4} \leq d < \frac{m}{2}$ in~\eqref{eq:generating-function}, we obtain
+Taking the coefficient of $n^{2d+1}$ for $d$ in range $\frac{m}{4} \leq d < \frac{m}{2}$ in~\eqref{eq:generating-function}, we obtain
 \begin{align*}
     \coeffA{m}{d} \frac{1}{(2d+1) \binom{2d}{d}}
     + 2 (2m+1) \binom{2m}{m} \binom{m}{2d+1} \frac{(-1)^m}{2m - 2d} \bernoulli{2m - 2d} = 0.
@@ -158,7 +159,7 @@ Solving for $\coeffA{m}{d}$ yields
     \coeffA{m}{d}
     = (-1)^{m-1} \frac{(2m+1)!}{d! \, d! \, m! \, (m - 2d - 1)!} \cdot \frac{1}{m - d} \bernoulli{2m - 2d}.
 \end{equation*}
-Proceeding recursively, we can compute each coefficient $\coeffA{m}{r}$ for integers $r$ in the ranges
+Proceeding recursively, we can compute each coefficient $\coeffA{m}{r}$ for integers $r$ in range
 $\frac{m}{2^{s+1}} \leq r < \frac{m}{2^s}$ for $s = 1, 2, \ldots$,
 by using previously computed values $\coeffA{m}{d}$
 \begin{equation*}
@@ -181,7 +182,7 @@ Finally, we define the following recurrence relation for coefficients $\coeffA{m
         \end{cases}
     \end{align*}
     where $\bernoulli{t}$ are Bernoulli numbers~\cite{weisstein2002bernoulli}.
-    It is assumed that $\bernoulli{1}=\frac{1}{2}$.
+    We assume that $\bernoulli{1}=\frac{1}{2}$.
 \end{proposition}
 For example,
 \input{sections/figures/05_fig_coefficients_a}
