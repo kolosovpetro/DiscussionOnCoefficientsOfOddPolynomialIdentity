@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{unusual_identity_for_odd_powers}
 {Kolosov, Petro}.
@@ -35,10 +35,17 @@ B.~Sury, Tianming Wang, and Feng-Zhen Zhao.
 \newblock {\em {Wolfram Research, Inc.}}, 2002.
 \newblock \url{https://mathworld.wolfram.com/BernoulliNumber.html}.
 
-\bibitem{OEIS}
-{N. J. A. Sloane}.
-\newblock {The On-Line Encyclopedia of Integer Sequences}, {2025}.
-\newblock \url{https://oeis.org/}.
+\bibitem{oeis_numerators_of_the_coefficient_a_m_r}
+Petro Kolosov.
+\newblock {Entry A302971 in The On-Line Encyclopedia of Integer Sequences},
+  2018.
+\newblock \url{https://oeis.org/A302971}.
+
+\bibitem{oeis_denominators_of_the_coefficient_a_m_r}
+Petro Kolosov.
+\newblock {Entry A304042 in The On-Line Encyclopedia of Integer Sequences},
+  2018.
+\newblock \url{https://oeis.org/A304042}.
 
 \bibitem{graham1994concrete}
 {Graham, Ronald L. and Knuth, Donald E. and Patashnik, Oren}.
@@ -53,5 +60,10 @@ B.~Sury, Tianming Wang, and Feng-Zhen Zhao.
   Pascal's identity}.
 \newblock {\em {The American Mathematical Monthly}}, 118(6):549--551, 2011.
 \newblock \url{https://arxiv.org/abs/1011.0076}.
+
+\bibitem{scheuer2023mathstackexchange}
+{Scheuer, Markus}.
+\newblock {MathStackExchange answer 4724343/463487}, 2023.
+\newblock \url{https://math.stackexchange.com/a/4724343/463487}.
 
 \end{thebibliography}
