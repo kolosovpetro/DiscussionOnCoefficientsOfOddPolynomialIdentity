@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 - Fix figure
 - Fix properties
 - Use convenient variables in Pascal's identity
+- Fix MSC2010 classes
 
 ### Changed
 
