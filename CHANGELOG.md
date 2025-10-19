@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 
 ## [1.1.1] - 2025-10-19
 
+- Fix definition spaces
+- Fix figure
+
 ### Changed
 
 ## [1.1.0] - 2025-10-18

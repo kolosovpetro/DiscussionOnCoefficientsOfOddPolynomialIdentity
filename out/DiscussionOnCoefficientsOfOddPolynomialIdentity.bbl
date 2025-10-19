@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{unusual_identity_for_odd_powers}
 {Kolosov, Petro}.
@@ -35,10 +35,17 @@ B.~Sury, Tianming Wang, and Feng-Zhen Zhao.
 \newblock {\em {Wolfram Research, Inc.}}, 2002.
 \newblock \url{https://mathworld.wolfram.com/BernoulliNumber.html}.
 
-\bibitem{OEIS}
-{N. J. A. Sloane}.
-\newblock {The On-Line Encyclopedia of Integer Sequences}, {2025}.
-\newblock \url{https://oeis.org/}.
+\bibitem{oeis_numerators_of_the_coefficient_a_m_r}
+Petro Kolosov.
+\newblock {Entry A302971 in The On-Line Encyclopedia of Integer Sequences},
+  2018.
+\newblock \url{https://oeis.org/A302971}.
+
+\bibitem{oeis_denominators_of_the_coefficient_a_m_r}
+Petro Kolosov.
+\newblock {Entry A304042 in The On-Line Encyclopedia of Integer Sequences},
+  2018.
+\newblock \url{https://oeis.org/A304042}.
 
 \bibitem{graham1994concrete}
 {Graham, Ronald L. and Knuth, Donald E. and Patashnik, Oren}.
