@@ -3,16 +3,16 @@ in terms of bivariate function $k(n-k)$ and numbers $\coeffA{m}{r}$.
 We may see it by comparing the Pascal's identity itself~\cite{macmillan2011proofs}
 \begin{align*}
 (n+1)
-    ^{k+1}-1=\sum _{p=0}^{k}{\binom {k+1}{p}}(1^{p}+2^{p}+\dots +n^{p})
+    ^{m+1}-1 = \sum_{r=0}^{m} \binom{m+1}{r} \left( 1^{r}+2^{r} + \dots + n^{r} \right)
 \end{align*}
 with identity in terms of bivariate function $k(n-k)$ and numbers $\coeffA{m}{r}$
 \begin{corollary}[Bivariate Pascal's identity]
     \begin{align*}
     (n+1)
-        ^{2k+1} - 1
-        &= \sum_{p=0}^{k} \coeffA{k}{p} \left[ 1^p n^p + 2^p (n-1)^p + 3^p (n-2)^p + 4^p (n-3)^p + \cdots +  n^p (n+1-n)^p  \right] \\
-        &= \sum_{p=0}^{k} \coeffA{k}{p} \left[ n^p + (2n-2)^p + (3n-6)^p + (4n-12)^p + \cdots +  n^p  \right] \\
-        &= \sum_{p=0}^{k} \coeffA{k}{p} \sum_{r=1}^{n} (r (n+1-r))^p
+        ^{2m+1} - 1
+        &= \sum_{r=0}^{m} \coeffA{m}{r} \left[ 1^r n^r + 2^r (n-1)^r + 3^r (n-2)^r + 4^r (n-3)^r + \cdots + n^r (n+1-n)^r  \right] \\
+        &= \sum_{r=0}^{m} \coeffA{m}{r} \left[ n^r + (2n-2)^r + (3n-6)^r + (4n-12)^r + \cdots + n^r  \right] \\
+        &= \sum_{r=0}^{m} \coeffA{m}{r} \sum_{k=1}^{n} (k (n+1-k))^r
     \end{align*}
 \end{corollary}
 \begin{definition}[Bivariate sum $T_m$]
@@ -80,7 +80,8 @@ For example: $3^5 = \binom{3}{1} 1023 - \binom{3}{2} 2643 + \binom{3}{3} 5103$.
     \label{prop:negated-binomial-form}
     For integers $n, \; a$ and $m\geq 0$ such that $n-2a \geq 0$
     \begin{align*}
-    (n-2a)^{2m+1} = \sum_{r=0}^{m} \sum_{k=a+1}^{n-a} \coeffA{m}{r} (k-a)^r (n-a-k)^r
+    (n-2a)
+        ^{2m+1} = \sum_{r=0}^{m} \sum_{k=a+1}^{n-a} \coeffA{m}{r} (k-a)^r (n-a-k)^r
     \end{align*}
     \begin{proof}
         By observing the summation limits we can see that $k$ runs as $k=a+1,a+2,a+3,\ldots,a+n-a$, which
