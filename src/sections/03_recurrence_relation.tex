@@ -83,8 +83,8 @@ we collapse common terms across two sums
     &= \frac{1}{(2r+1) \binom{2r}r} n^{2r+1} + 2 \sum_{\mathrm{odd \; \ell}} \frac{(-1)^r}{2r+1-\ell} \binom{r}{\ell} \bernoulli{2r+1-\ell} n^{\ell}
 \end{align*}
 By replacing odd $\ell = 2k+1$, we get
-\begin{proposition}[Bivariate Faulhaber's Formula]
-    \label{prop:bivariate-faulhabers-formula}
+\begin{proposition}[Bivariate Faulhaber's Formula] For integers $r \geq 0$ and $n \geq 1$
+\label{prop:bivariate-faulhabers-formula}
     \begin{align*}
         \sum_{k=1}^{n} k^{r} (n-k)^{r}
         = \frac{n^{2r+1}}{(2r+1) \binom{2r}r}
@@ -201,7 +201,7 @@ Properties of the coefficients $\coeffA{m}{r}$
 \end{itemize}
 \begin{proposition}[Odd power identity]
     \label{prop:odd-power-identity}
-    For non-negative integers $n$ and $m$,
+    For non-negative integers $m$ and $n \geq 1$,
     there is a set of coefficients $\coeffA{m}{0}, \coeffA{m}{1}, \ldots, \coeffA{m}{m}$ such that
     \begin{align*}
         n^{2m+1} = \sum_{r=0}^{m} \sum_{k=1}^{n} \coeffA{m}{r} k^r (n-k)^r

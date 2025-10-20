@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning v2.0.0](https://semver.org/spec
 ## [1.1.2] - 2025-10-20
 
 - Refactors in formulas
+- Definition spaces
 
 ## [1.1.1] - 2025-10-19
 
