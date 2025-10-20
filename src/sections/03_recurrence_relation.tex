@@ -227,13 +227,13 @@ Thus, the formula for sums of odd powers is straightforward
         \sum_{k=1}^{n} k^{2m+1}
         &= \sum_{r=0}^{m} \coeffA{m}{r} \left[ \left( \sum_{k=0}^{n-1} k^r \right) +  \left( \sum_{k=0}^{n-2} (2k)^r \right) + \left( \sum_{k=0}^{n-3} (3k)^r \right)+ \cdots + \left( \sum_{k=0}^{n-n} (nk)^r \right) \right] \\
         &= \sum_{r=0}^{m} \coeffA{m}{r} \left[ \left( \sum_{k=0}^{n-1} k^r \right) +  \left( 2^r \sum_{k=0}^{n-2} k^r \right) + \left( 3^r \sum_{k=0}^{n-3} k^r \right)+ \cdots + \left( n^r \sum_{k=0}^{n-n} k^r \right) \right]
-%        &= \sum_{r=0}^{m} \coeffA{m}{r} \sum_{t=1}^{n} \sum_{k=0}^{n-t} (tk)^r = \sum_{r=0}^{m} \coeffA{m}{r} \sum_{t=1}^{n} \sum_{k=1}^{t} ((n-t)k)^r
     \end{align*}
     \begin{proof}
         Direct consequence of~\eqref{prop:odd-power-identity}.
     \end{proof}
 \end{proposition}
-\begin{corollary}[Compact forms] For integers $m\geq 0$ and $n \geq 1$
+\begin{corollary}[Compact forms]
+    For integers $m\geq 0$ and $n \geq 1$
     \begin{align*}
         \sum_{k=1}^{n} k^{2m+1} = \sum_{r=0}^{m} \coeffA{m}{r} \sum_{t=1}^{n} \sum_{k=0}^{n-t} (tk)^r = \sum_{r=0}^{m} \coeffA{m}{r} \sum_{t=1}^{n} \sum_{k=1}^{t} ((n-t)k)^r
     \end{align*}
