@@ -35,6 +35,8 @@ TableFormCentralRecurrenceForT::usage="Prints the central recurrence for Tm in t
 TableFormBivariateSumT::usage="Prints Tm in the form of triangle."
 
 SumsOfOddPowers::usage="Validates the identity Sums of powers."
+SumsOfOddPowers2::usage="Validates the identity Sums of powers."
+SumsOfOddPowers3::usage="Validates the identity Sums of powers."
 
 BinomialForm::usage="Validates the identity Binomial form."
 ShiftedBinomialForm::usage="Validates the identity Shifted binomial form."
@@ -48,6 +50,7 @@ ShiftedCenteredNegatedBinomialForm::usage="Validates the identity Shifted center
 DoubleBivariateSumR::usage="Defines the Double bivaraite sum Rm."
 
 FaulhaberCoefficients::usage="Faulhaber coefficients https://arxiv.org/pdf/math/9207222 page 14."
+SumOfPowers::usage="Gives sum of powers 1^p + 2^p + ..."
 
 Begin["`Private`"]
 
@@ -102,6 +105,9 @@ TableFormCentralRecurrenceForT[m_, rows_]:= TableForm[Table[CentralRecurrenceFor
 OddPowerCentralDecomposition[n_, m_]:= Sum[Sum[(-1)^(t+1) * Binomial[m+1, t] * BivariateSumT[m, n+(m/2)-t, k], {t, 1, m+1}], {k, 1, n+(m/2)}];
 
 SumsOfOddPowers[m_, p_]:= Sum[Sum[Sum[A[m, r]* k^r * (n-k)^r, {r, 0, m}], {k, 1, n}], {n, 1, p}];
+SumsOfOddPowers2[m_, p_]:= Sum[Sum[Sum[A[m, r] * (t*k)^r, {k, 0, p-t}], {t, 1, p}], {r, 0, m}];
+SumsOfOddPowers3[m_, p_]:= Sum[Sum[Sum[A[m, r] * ((p-t)*k)^r, {k, 1, t}], {t, 1, p}], {r, 0, m}];
+SumOfPowers[m_, p_]:= Sum[k^(2m+1), {k, 1, p}];
 
 BinomialForm[m_, n_, a_] := Sum[A[m, r]* Sum[(k + a)^r * (n + a - k)^r, {k, -a+1, n + a}], {r, 0, m}];
 ShiftedBinomialForm[m_, n_, a_] := Sum[A[m, r]* Sum[(k + a)^r * (n + a - k)^r, {k, -a, n + a-1}], {r, 0, m}];
