@@ -87,8 +87,8 @@ By replacing odd $\ell = 2k+1$, we get
     \label{prop:bivariate-faulhabers-formula}
     \begin{align*}
         \sum_{k=1}^{n} k^{r} (n-k)^{r}
-        = \frac{1}{(2r+1) \binom{2r}r} n^{2r+1}
-        + \sum_{k=0}^{\infty} \frac{(-1)^r}{r-k} \binom{r}{2k+1} \bernoulli{2r-2k} n^{2k+1}
+        = \frac{n^{2r+1}}{(2r+1) \binom{2r}r}
+        + (-1)^r \sum_{k=0}^{\infty} \binom{r}{2k+1} \frac{\bernoulli{2r-2k}}{r-k} n^{2k+1}
     \end{align*}
 \end{proposition}
 Assuming that coefficients $\coeffA{m}{r}$ are defined
@@ -96,8 +96,8 @@ by odd-power identity~\eqref{eq:odd-power-identity},
 we obtain the following relation for polynomials in $n$
 \begin{align}
     \label{eq:generating-function}
-    R_{m} = \sum_{r=0}^{m} \coeffA{m}{r} \frac{1}{(2r+1) \binom{2r}{r}} n^{2r+1}
-    + \sum_{r=0}^{m} \sum_{k=0}^{\infty} \coeffA{m}{r} \frac{(-1)^r}{r-k} \binom{r}{2k+1} \bernoulli{2r-2k} n^{2k+1}
+    R_{m} = \sum_{r=0}^{m} \coeffA{m}{r} \frac{n^{2r+1}}{(2r+1) \binom{2r}{r}}
+    + \left[ \sum_{r=0}^{m} (-1)^r \sum_{k=0}^{\infty} \coeffA{m}{r} \binom{r}{2k+1} \frac{\bernoulli{2r-2k}}{r-k} n^{2k+1} \right]
     - n^{2m+1} \equiv 0
 \end{align}
 We now fix the unused values of $\coeffA{m}{r}$ so that $\coeffA{m}{r} = 0$ for every $r < 0$ or $r > m$.
@@ -113,12 +113,12 @@ and $k = m$, which gives
 [n^{2m+1}]
     R_{m}
     = \coeffA{m}{m} \frac{1}{(2m+1) \binom{2m}{m}}
-    + \sum_{r=0}^{m} \coeffA{m}{r} \frac{(-1)^r}{r - m} \binom{r}{2m+1} \bernoulli{2r - 2m}
+    + \left[ (-1)^r \sum_{r=0}^{m} \coeffA{m}{r} \binom{r}{2m+1} \frac{\bernoulli{2r-2m}}{r-m} \right]
     - 1 = 0
 \end{align*}
 We observe that the sum
 \begin{align*}
-    \sum_{r=0}^{m} \coeffA{m}{r} \frac{(-1)^r}{r - m} \binom{r}{2m+1} \bernoulli{2r - 2m}
+    \sum_{r=0}^{m} \coeffA{m}{r} \binom{r}{2m+1} \frac{\bernoulli{2r-2m}}{r-m}
 \end{align*}
 does not contribute to the determination of the coefficients $\coeffA{m}{r}$, because the binomial coefficient
 $\binom{r}{2m+1}$ vanishes for all $r \leq m$.
@@ -130,7 +130,10 @@ Thus,
 Taking the coefficient of $n^{2d+1}$ for an integer $d$ in range $\frac{m}{2} \leq d \leq m-1$ in~\eqref{eq:generating-function} gives
 \begin{align*}
 [n^{2d+1}]
-    R_m = \coeffA{m}{d} \frac{1}{(2d+1) \binom{2d}{d}} + \sum_{r=0}^m \coeffA{m}{r} \frac{(-1)^r}{r-d} \binom{r}{2d+1} \bernoulli{2r-2d} = 0
+    R_m
+    = \coeffA{m}{d} \frac{1}{(2d+1) \binom{2d}{d}}
+    + (-1)^r \sum_{r=0}^m \coeffA{m}{r} \binom{r}{2d+1} \frac{\bernoulli{2r-2d} }{r-d}
+    = 0
 \end{align*}
 For every $\frac{m}{2} \leq d$, the binomial coefficient $\binom{r}{2d+1}$ vanishes, because for all $r \leq m$
 holds $r < 2d+1$.
