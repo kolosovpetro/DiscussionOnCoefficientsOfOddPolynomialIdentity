@@ -6,7 +6,8 @@ We may see it by comparing the Pascal's identity itself~\cite{macmillan2011proof
     ^{m+1}-1 = \sum_{r=0}^{m} \binom{m+1}{r} \left( 1^{r}+2^{r} + \dots + n^{r} \right)
 \end{align*}
 with identity in terms of bivariate function $k(n-k)$ and numbers $\coeffA{m}{r}$
-\begin{corollary}[Bivariate Pascal's identity] For integers $n \geq 1$ and $m\geq 0$
+\begin{corollary}[Bivariate Pascal's identity]
+    For integers $n \geq 1$ and $m\geq 0$
     \begin{align*}
     (n+1)
         ^{2m+1} - 1
@@ -56,7 +57,11 @@ with identity in terms of bivariate function $k(n-k)$ and numbers $\coeffA{m}{r}
         and forward recurrence~\eqref{prop:Tm-recurrence-forward}.
     \end{proof}
 \end{proposition}
-For example: $3^5 = \binom{3}{1} 1023 - \binom{3}{2} 2643 + \binom{3}{3} 5103$.
+For example:
+\begin{itemize}
+    \item $3^5 = \binom{3}{1} 1023 - \binom{3}{2} 2643 + \binom{3}{3} 5103$
+    \item $3^5 = \binom{4}{1} 1023 - \binom{4}{2} 2643+ \binom{4}{3} 5103 - \binom{4}{4} 8403$
+\end{itemize}
 \begin{proposition}[Forward Recurrence for $T_m$ multifold]
     For integers $m \geq 0, \; n, \; k$ and $s \geq 1$
     \label{prop:Tm-recurrence-forward-multifold}
@@ -76,6 +81,11 @@ For example: $3^5 = \binom{3}{1} 1023 - \binom{3}{2} 2643 + \binom{3}{3} 5103$.
         and forward recurrence multifold~\eqref{prop:Tm-recurrence-forward-multifold}.
     \end{proof}
 \end{proposition}
+For example:
+\begin{itemize}
+    \item $2^3 = \binom{5}{1} 26 - \binom{5}{2}44 + \binom{5}{3} 62 - \binom{5}{4}80+\binom{5}{5}98$
+    \item $5^3 = \binom{3}{1} 215 - \binom{3}{2} 305 + \binom{3}{3} 395$
+\end{itemize}
 \begin{proposition}[Negated binomial form]
     \label{prop:negated-binomial-form}
     For integers $n, \; a$ and $m\geq 0$ such that $n-2a \geq 0$

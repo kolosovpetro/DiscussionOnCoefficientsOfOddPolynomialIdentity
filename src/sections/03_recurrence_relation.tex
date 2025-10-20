@@ -83,8 +83,9 @@ we collapse common terms across two sums
     &= \frac{1}{(2r+1) \binom{2r}r} n^{2r+1} + 2 \sum_{\mathrm{odd \; \ell}} \frac{(-1)^r}{2r+1-\ell} \binom{r}{\ell} \bernoulli{2r+1-\ell} n^{\ell}
 \end{align*}
 By replacing odd $\ell = 2k+1$, we get
-\begin{proposition}[Bivariate Faulhaber's Formula] For integers $r \geq 0$ and $n \geq 1$
-\label{prop:bivariate-faulhabers-formula}
+\begin{proposition}[Bivariate Faulhaber's Formula]
+    For integers $r \geq 0$ and $n \geq 1$
+    \label{prop:bivariate-faulhabers-formula}
     \begin{align*}
         \sum_{k=1}^{n} k^{r} (n-k)^{r}
         = \frac{n^{2r+1}}{(2r+1) \binom{2r}r}
@@ -219,3 +220,21 @@ For example,
 We define $x^0 = 1$ for all $x$, see~\cite[~p. 162]{graham1994concrete}.
 This is because when $k=n$ and $r=0$ the term $k^r (n-k)^r = n^0 \cdot 0^0$, thus we define $x^0 = 1$
 for all $x$.
+Thus, the formula for sums of odd powers is straightforward
+\begin{proposition}[Sum of odd powers]
+    For integers $m\geq 0$ and $n \geq 1$
+    \begin{align*}
+        \sum_{k=1}^{n} k^{2m+1}
+        &= \sum_{r=0}^{m} \coeffA{m}{r} \left[ \left( \sum_{k=0}^{n-1} k^r \right) +  \left( \sum_{k=0}^{n-2} (2k)^r \right) + \left( \sum_{k=0}^{n-3} (3k)^r \right)+ \cdots + \left( \sum_{k=0}^{n-n} (nk)^r \right) \right] \\
+        &= \sum_{r=0}^{m} \coeffA{m}{r} \left[ \left( \sum_{k=0}^{n-1} k^r \right) +  \left( 2^r \sum_{k=0}^{n-2} k^r \right) + \left( 3^r \sum_{k=0}^{n-3} k^r \right)+ \cdots + \left( n^r \sum_{k=0}^{n-n} k^r \right) \right]
+    \end{align*}
+    \begin{proof}
+        Direct consequence of~\eqref{prop:odd-power-identity}.
+    \end{proof}
+\end{proposition}
+\begin{corollary}[Compact forms]
+    For integers $m\geq 0$ and $n \geq 1$
+    \begin{align*}
+        \sum_{k=1}^{n} k^{2m+1} = \sum_{r=0}^{m} \coeffA{m}{r} \sum_{t=1}^{n} \sum_{k=0}^{n-t} (tk)^r = \sum_{r=0}^{m} \coeffA{m}{r} \sum_{t=1}^{n} \sum_{k=1}^{t} ((n-t)k)^r
+    \end{align*}
+\end{corollary}
