@@ -1,10 +1,10 @@
 In 2018, a recurrence formula~\cite{alekseyev2018mathoverflow} for coefficients $\coeffA{m}{r}$
 was proposed by Dr. Max Alekseyev, George Washington University.
-The main idea of Alekseyev's approach was to utilize a generating function to evaluate
-the set of coefficients $\coeffA{m}{r}$
-starting from the base case $\coeffA{m}{m}$, then to evaluate previous coefficient $\coeffA{m}{m-1}$
+The main idea of Alekseyev's approach was to utilize certain generating function to evaluate
+the set of coefficients $\coeffA{m}{r}$,
+starting from the base case $\coeffA{m}{m}$, then to compute the previous coefficient $\coeffA{m}{m-1}$
 recursively, similarly up to $\coeffA{m}{0}$.
-We utilize Binomial theorem and a specific version
+We use Binomial theorem and specific version
 of Faulhaber's formula~\cite{beardon1996sums} with upper summation bound set to $p+1$
 \begin{align*}
     \sum_{k=1}^{n} k^{p}
@@ -59,7 +59,7 @@ Therefore,
 \begin{equation*}
     \begin{split}
         \sum_{k=1}^{n} k^{r} (n-k)^{r}
-        &= \frac{1}{(2r+1) \binom{2r}r} n^{2r+1}
+        &= \frac{n^{2r+1}}{(2r+1) \binom{2r}r}
         + \left[ \sum_{j = 1}^{\infty} \bernoulli{j} n^{2r+1-j} \sum_{t} \binom{r}{t} \frac{(-1)^t}{t+r+1} \binom{t+r+1}{j} \right] \\
         &- \left[ \sum_{t} \binom{r}{t} \frac{(-1)^t}{t+r+1} \bernoulli{t+r+1} n^{r-t} \right]
     \end{split}
@@ -68,7 +68,7 @@ Hence, we simplify equation~\eqref{eq:rearranging-terms} by using binomial ident
 \begin{equation*}
     \begin{split}
         \sum_{k=1}^{n} k^{r} (n-k)^{r}
-        &= \frac{1}{(2r+1) \binom{2r}r} n^{2r+1}
+        &= \frac{n^{2r+1}}{(2r+1) \binom{2r}r}
         + \left[ \sum_{j=1}^{\infty} \frac{(-1)^r}{j} \binom{r}{2r-j+1} \bernoulli{j} n^{2r-j+1} \right] \\
         &- \left[ \sum_{t} \binom{r}{t} \frac{(-1)^t}{t+r+1} \bernoulli{t+r+1} n^{r-t} \right]
     \end{split}
@@ -77,10 +77,10 @@ By setting $\ell=2r-j+1$ to $\sum_{j=1}^{\infty}$, and $\ell=r-t$ to $\sum_{t}$,
 we collapse common terms across two sums
 \begin{align*}
     \sum_{k=1}^{n} k^{r} (n-k)^{r}
-    &= \frac{1}{(2r+1) \binom{2r}r} n^{2r+1}
+    &= \frac{n^{2r+1}}{(2r+1) \binom{2r}r}
     + \left[ \sum_{\ell} \frac{(-1)^r}{2r+1-\ell} \binom{r}{\ell} \bernoulli{2r+1-\ell} n^{\ell} \right] \\
     &- \left[ \sum_{\ell} \binom{r}{\ell} \frac{(-1)^{r-\ell}}{2r+1-\ell} \bernoulli{2r+1-\ell} n^{\ell} \right]\\
-    &= \frac{1}{(2r+1) \binom{2r}r} n^{2r+1} + 2 \sum_{\mathrm{odd \; \ell}} \frac{(-1)^r}{2r+1-\ell} \binom{r}{\ell} \bernoulli{2r+1-\ell} n^{\ell}
+    &= \frac{n^{2r+1}}{(2r+1) \binom{2r}r} + 2 \sum_{\mathrm{odd \; \ell}} \frac{(-1)^r}{2r+1-\ell} \binom{r}{\ell} \bernoulli{2r+1-\ell} n^{\ell}
 \end{align*}
 By replacing odd $\ell = 2k+1$, we get
 \begin{proposition}[Bivariate Faulhaber's Formula]
@@ -108,8 +108,9 @@ By extracting the coefficient of $n^{2m+1}$ in~\eqref{eq:generating-function} im
 \end{align*}
 because $[n^{2m+1}]R_m = \coeffA{m}{m} \frac{1}{(2m+1) \binom{2m}{m}} - 1 = 0$.
 To extract the coefficient of $n^{2m+1}$ from the series~\eqref{eq:generating-function},
-we isolate the relevant terms by setting $r = m$,
-and $k = m$, which gives
+we isolate the relevant terms by setting $r = m$ in $\sum_{r=0}^{m} \coeffA{m}{r} \frac{n^{2r+1}}{(2r+1) \binom{2r}{r}}$
+and $k = m$ in $\sum_{r=0}^{m} (-1)^r \sum_{k=0}^{\infty} \coeffA{m}{r} \binom{r}{2k+1} \frac{\bernoulli{2r-2k}}{r-k} n^{2k+1}$,
+which gives
 \begin{align*}
 [n^{2m+1}]
     R_{m}
