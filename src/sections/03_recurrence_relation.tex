@@ -88,8 +88,8 @@ By replacing odd $\ell = 2k+1$, we get
     \label{prop:bivariate-faulhabers-formula}
     \begin{align*}
         \sum_{k=1}^{n} k^{r} (n-k)^{r}
-        = \frac{n^{2r+1}}{(2r+1) \binom{2r}r}
-        + (-1)^r \sum_{k=0}^{\infty} \binom{r}{2k+1} \frac{\bernoulli{2r-2k}}{r-k} n^{2k+1}
+        = \frac{n^{2r+1}}{(2r+1) \binom{2r}{r}}
+        + (-1)^r \sum_{k=0}^{r-1} \binom{r}{2k+1} \frac{\bernoulli{2r-2k}}{r-k} n^{2k+1}
     \end{align*}
 \end{proposition}
 Assuming that coefficients $\coeffA{m}{r}$ are defined
@@ -97,11 +97,12 @@ by odd-power identity~\eqref{eq:odd-power-identity},
 we obtain the following relation for polynomials in $n$
 \begin{align}
     \label{eq:generating-function}
-    R_{m} = \sum_{r=0}^{m} \coeffA{m}{r} \frac{n^{2r+1}}{(2r+1) \binom{2r}{r}}
-    + \left[ \sum_{r=0}^{m} (-1)^r \sum_{k=0}^{\infty} \coeffA{m}{r} \binom{r}{2k+1} \frac{\bernoulli{2r-2k}}{r-k} n^{2k+1} \right]
+    R_{m} = \sum_{r=0}^{\infty} \coeffA{m}{r} \frac{n^{2r+1}}{(2r+1) \binom{2r}{r}}
+    + \left[ \sum_{r=0}^{\infty} (-1)^r \sum_{k=0}^{\infty} \coeffA{m}{r} \binom{r}{2k+1} \frac{\bernoulli{2r-2k}}{r-k} n^{2k+1} \right]
     - n^{2m+1} \equiv 0
 \end{align}
-We now fix the unused values of $\coeffA{m}{r}$ so that $\coeffA{m}{r} = 0$ for every $r < 0$ or $r > m$.
+We now fix the unused values of $\coeffA{m}{r}$ so that $\coeffA{m}{r} = 0$ for every $r < 0$ or $r > m$,
+thus we can let $r$ running over all integers.
 By extracting the coefficient of $n^{2m+1}$ in~\eqref{eq:generating-function} implies
 \begin{align*}
     \coeffA{m}{m} = (2m+1)\binom{2m}{m}
@@ -115,46 +116,55 @@ which gives
 [n^{2m+1}]
     R_{m}
     = \coeffA{m}{m} \frac{1}{(2m+1) \binom{2m}{m}}
-    + \left[ (-1)^r \sum_{r=0}^{m} \coeffA{m}{r} \binom{r}{2m+1} \frac{\bernoulli{2r-2m}}{r-m} \right]
+    + \left[ \sum_{r=2m+1}^{\infty} (-1)^r \coeffA{m}{r} \binom{r}{2m+1} \frac{\bernoulli{2r-2m}}{r-m} \right]
     - 1 = 0
 \end{align*}
 We observe that the sum
 \begin{align*}
-    \sum_{r=0}^{m} \coeffA{m}{r} \binom{r}{2m+1} \frac{\bernoulli{2r-2m}}{r-m}
+    \sum_{r=2m+1}^{\infty} (-1)^r \coeffA{m}{r} \binom{r}{2m+1} \frac{\bernoulli{2r-2m}}{r-m}
 \end{align*}
-does not contribute to the determination of the coefficients $\coeffA{m}{r}$, because the binomial coefficient
-$\binom{r}{2m+1}$ vanishes for all $r \leq m$.
+does not contribute to the determination of the coefficients $\coeffA{m}{r}$, because $\coeffA{m}{r}$ is zero
+for all $r > m$, by definition.
 Consequently, all terms in the sum are zero.
 Thus,
 \begin{align*}
     \coeffA{m}{m} \frac{1}{(2m+1) \binom{2m}{m}}  - 1 = 0 \implies \coeffA{m}{m} = (2m+1) \binom{2m}{m}
 \end{align*}
-Taking the coefficient of $n^{2d+1}$ for an integer $d$ in range $\frac{m}{2} \leq d \leq m-1$ in~\eqref{eq:generating-function} gives
+Taking the coefficient of $n^{2d+1}$ for an integer $d$ in range $\frac{m}{2} \leq d \leq m-1$
+in~\eqref{eq:generating-function} gives
 \begin{align*}
 [n^{2d+1}]
     R_m
     = \coeffA{m}{d} \frac{1}{(2d+1) \binom{2d}{d}}
-    + (-1)^r \sum_{r=0}^m \coeffA{m}{r} \binom{r}{2d+1} \frac{\bernoulli{2r-2d} }{r-d}
+    + \sum_{r=2d+1}^{\infty} (-1)^r \coeffA{m}{r} \binom{r}{2d+1} \frac{\bernoulli{2r-2d} }{r-d}
     = 0
 \end{align*}
-For every $\frac{m}{2} \leq d$, the binomial coefficient $\binom{r}{2d+1}$ vanishes, because for all $r \leq m$
-holds $r < 2d+1$.
-As a particular example, when $r = m$ and $d = \frac{m}{2}$, we have
-\begin{align*}
-    \binom{m}{m+1} = 0.
-\end{align*}
-Therefore, the entire sum involving $\binom{r}{2d+1}$ vanishes, and we conclude
-that for all integers $d$ such that $\frac{m}{2} \leq d \leq m-1$ the coefficients $\coeffA{m}{d}$
-are zeroes
+which implies
 \begin{align*}
     \coeffA{m}{d} \frac{1}{(2d+1) \binom{2d}{d}} = 0 \implies \coeffA{m}{d} = 0.
 \end{align*}
-In contrast, for values $d \leq \frac{m}{2} - 1$, the binomial coefficient $\binom{r}{2d+1}$ can be nonzero; for instance, if $r = m$ and $d = \frac{m}{2} - 1$, then
-\begin{align*}
-    \binom{m}{m - 1} \neq 0,
-\end{align*}
-allowing the corresponding terms to contribute to the determination of $\coeffA{m}{d}$.
-Taking the coefficient of $n^{2d+1}$ for $d$ in range $\frac{m}{4} \leq d < \frac{m}{2}$ in~\eqref{eq:generating-function}, we obtain
+because the sum $\sum_{r=2d+1}^{\infty} (-1)^r \coeffA{m}{r} \binom{r}{2d+1} \frac{\bernoulli{2r-2d} }{r-d}$ is zero
+for all $d$ in range $\frac{m}{2} \leq d \leq m-1$.
+For example: let $d=m-1$, then $r= 2d+1 = 2m-1$, thus $\coeffA{m}{2m-1}=0$, by definition.
+Let be $d=\frac{m}{2}$, then $r=2d+1 = m+1$, thus $\coeffA{m}{m+1}=0$, by definition.
+%For every $\frac{m}{2} \leq d$, the binomial coefficient $\binom{r}{2d+1}$ vanishes, because for all $r \leq m$
+%holds $r < 2d+1$.
+%As a particular example, when $r = m$ and $d = \frac{m}{2}$, we have
+%\begin{align*}
+%    \binom{m}{m+1} = 0.
+%\end{align*}
+%Therefore, the entire sum involving $\binom{r}{2d+1}$ vanishes, and we conclude
+%that for all integers $d$ such that $\frac{m}{2} \leq d \leq m-1$ the coefficients $\coeffA{m}{d}$
+%are zeroes
+%\begin{align*}
+%    \coeffA{m}{d} \frac{1}{(2d+1) \binom{2d}{d}} = 0 \implies \coeffA{m}{d} = 0.
+%\end{align*}
+%In contrast, for values $d \leq \frac{m}{2} - 1$, the binomial coefficient $\binom{r}{2d+1}$ can be nonzero; for instance, if $r = m$ and $d = \frac{m}{2} - 1$, then
+%\begin{align*}
+%    \binom{m}{m - 1} \neq 0,
+%\end{align*}
+%allowing the corresponding terms to contribute to the determination of $\coeffA{m}{d}$.
+Taking the coefficient of $n^{2d+1}$ for $d$ in range $\frac{m}{4} \leq d \leq \frac{m}{2}-1$ in~\eqref{eq:generating-function}, we obtain
 \begin{align*}
     \coeffA{m}{d} \frac{1}{(2d+1) \binom{2d}{d}}
     + 2 (2m+1) \binom{2m}{m} \binom{m}{2d+1} \frac{(-1)^m}{2m - 2d} \bernoulli{2m - 2d} = 0.
@@ -165,7 +175,7 @@ Solving for $\coeffA{m}{d}$ yields
     = (-1)^{m-1} \frac{(2m+1)!}{d! \, d! \, m! \, (m - 2d - 1)!} \cdot \frac{1}{m - d} \bernoulli{2m - 2d}.
 \end{equation*}
 Proceeding recursively, we can compute each coefficient $\coeffA{m}{r}$ for integers $r$ in range
-$\frac{m}{2^{s+1}} \leq r < \frac{m}{2^s}$ for $s = 1, 2, \ldots$,
+$\frac{m}{2^{s+1}} \leq r \leq \frac{m}{2^s}-1$ for $s = 1, 2, \ldots$,
 by using previously computed values $\coeffA{m}{d}$
 \begin{equation*}
     \coeffA{m}{r} =
@@ -174,7 +184,7 @@ by using previously computed values $\coeffA{m}{d}$
 \end{equation*}
 Finally, we define the following recurrence relation for coefficients $\coeffA{m}{r}$
 \begin{proposition}
-    For integers $m$ and $r$
+    For integers $m\geq0$ and $r$
     \label{prop:coefficients_a}
     \begin{align*}
         \coeffA{m}{r} =
